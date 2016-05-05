@@ -1,162 +1,37 @@
 <!doctype html>
 <html>
 	<head>
-		<title>Numeric Ocrad.js Example</title>
-		<style>
-			body {
-				background: whiteSmoke;
-				font-family: sans-serif;
-				margin: 30px;
-			}
-			#transcription, #pic {
-				background: white;
-				display: inline-block;
-				border: 1px solid #ddd;
-				margin: 10px;
-			}
-			#transcription {
-				font-size: 30px;
-				padding: 30px;
-				min-width: 300px;
-				color: gray;
-			}
-			#transcription.done {
-				color: black;
-			}
-			#main {
-				display: flex;
-			}
-		</style>
+            <meta charset="UTF-8">
+            <title>Reconocimiento Digital de Imagenes</title>
+            <link rel="stylesheet" type="text/css" href="css/pagStyle.css">
+            <script src="ocrad.js-master/ocrad.js"></script>
+                
 	</head>
 	<body>
-		<h1>Numeric Ocrad.js Example</h1>
+            <h1>Juega con números</h1>
+            <div id="main">
 
-                <script src="ocrad.js-master/ocrad.js"></script>
-		<script>
-			function recognize_image(){
-                            document.getElementById('transcription').innerText = "(Recognizing...)"
-
-                            OCRAD(document.getElementById("c"), {
-                                    numeric: true
-                            }, function(text){
-                                    document.getElementById('transcription').className = "done"
-                                    document.getElementById('transcription').innerText = text;
-                            })
-			}
-		</script>
-
-		<div id="main">
-                    
-                    <div id="demo">
-                        <div class="output">
-                            <div id="output">
-                                <div id="text"></div>
-                                <span id="timing"></span>
-                            </div>
-                        </div>
-                        <canvas id='c' class="" width="600" height="300"></canvas>
-                        <div class="buttons">
-                            <div id="clear" onclick="reset_canvas()">&times;</div>
-                            <div id="word" onclick="da_word()">&#8635;</div>
+                <div id="demo">
+                    <div class="output">
+                        <div id="output">
+                            <div id="text"></div>
+                            <span id="timing"></span>
                         </div>
                     </div>
-                    
-                    <!--<img id="pic" src="img/numbers.png" onload="recognize_image()">-->
-                    <div id="transcription"></div>
-                    <button onclick="getImageCanvas();recognize_image();">Aceptar</button>
-		</div>
-                
-                <script>
-                    
-                    function getImageCanvas(){
-                        var canvas = document.getElementById("c");
-                        var ctx = canvas.getContext("2d");
-                        var img = document.getElementById("c");
-                        ctx.drawImage(img, 10, 10);
-                    }
-                    
-                    var c = document.getElementById('c'),
-				o = c.getContext('2d');
-
-			function reset_canvas(){
-				o.fillStyle = 'white'
-				o.fillRect(0, 0, c.width, c.height)
-				o.fillStyle = 'black'	
-			}
-
-			// here's a really simple little drawing app so people can try their luck at
-			// the lottery that is offline handwriting recognition
-			var drag = false, lastX, lastY;
-			c.onmousedown = function(e){ drag = true; lastX = 0; lastY = 0; e.preventDefault(); c.onmousemove(e) }
-			c.onmouseup   = function(e){ drag = false; e.preventDefault(); runOCR() }
-			c.onmousemove = function(e){
-				e.preventDefault()
-				var rect = c.getBoundingClientRect();
-				var r = 5;
-
-				function dot(x, y){
-					o.beginPath()
-					o.moveTo(x + r, y)
-					o.arc(x, y, r, 0, Math.PI * 2)
-					o.fill()
-				}
-				if(drag){
-					var x = e.clientX - rect.left, 
-						y = e.clientY - rect.top;
-					
-					if(lastX && lastY){
-						var dx = x - lastX, dy = y - lastY;
-						var d = Math.sqrt(dx * dx + dy * dy);
-						for(var i = 1; i < d; i += 2){
-							dot(lastX + dx / d * i, lastY + dy / d * i)
-						}
-					}
-					dot(x, y)
-
-					lastX = x;
-					lastY = y;
-				}
-			}
-                        
-			document.body.ondragover = function(){ document.body.className = 'dragging'; return false }
-			document.body.ondragend = function(){ document.body.className = ''; return false }
-			document.body.onclick = function(){document.body.className = '';}
-			document.body.ondrop = function(e){
-				e.preventDefault();
-				document.body.className = '';
-				picked_file(e.dataTransfer.files[0]);
-				return false;
-			}
-                        
-                        var lastWorker;
-			var worker = new Worker('worker.js')
-			function runOCR(image_data, raw_feed){
-				document.getElementById("output").className = 'processing'
-				worker.onmessage = function(e){
-
-					document.getElementById("output").className = ''
-					
-					if('innerText' in document.getElementById("text")){
-						document.getElementById("text").innerText = e.data
-					}else{
-						document.getElementById("text").textContent = e.data	
-					}
-					document.getElementById('timing').innerHTML = 'recognition took ' + ((Date.now() - start)/1000).toFixed(2) + 's';
-				}
-				var start = Date.now()
-				if(!raw_feed){
-					image_data = o.getImageData(0, 0, c.width, c.height);	
-				}
-
-				worker.postMessage(image_data)
-				lastWorker = worker;
-			}
-
-
-
-			reset_canvas()
-                </script>
-                
+                    <canvas id='c' class="" width="600" height="300"></canvas>
+                    <div class="buttons">
+                        <div id="clear" onclick="reset_canvas()">&times;</div>
+                        <div id="word" onclick="da_word()">&#8635;</div>
+                    </div>
+                    <div><button onclick="getImageCanvas();recognize_image();">Aceptar</button></div>
+                </div>
+                <!--<img id="pic" src="img/numbers.png" onload="recognize_image()">-->
+                <div id="transcription"></div>
+            </div>
+            <script src="js/actionsPag.js"></script>
+            <script>
+                reset_canvas()
+            </script>
 	</body>	
 </html>
 
