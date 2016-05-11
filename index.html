@@ -1,38 +1,51 @@
 <!doctype html>
 <html>
-	<head>
-            <meta charset="UTF-8">
-            <title>Reconocimiento Digital de Imagenes</title>
-            <link rel="stylesheet" type="text/css" href="css/pagStyle.css">
-            <script src="ocrad.js-master/ocrad.js"></script>
-                
-	</head>
-	<body>
-            <h1>Juega con números</h1>
-            <div id="main">
+    <head>
+        <meta charset="UTF-8">
+        <title>Reconocimiento Digital de Imagenes</title>
+        <link rel="stylesheet" type="text/css" href="css/pagStyle.css">
+        <script src="ocrad.js-master/ocrad.js"></script>
 
-                <div id="demo">
-                    <div class="output">
-                        <div id="output">
-                            <div id="text"></div>
-                            <span id="timing"></span>
-                        </div>
+    </head>
+    <body>
+        <h1>Juega con números</h1>
+        <div id="main">
+
+            <div id="demo">
+                <div class="output">
+                    <div id="output">
+                        <div id="text"></div>
+                        <span id="timing"></span>
                     </div>
-                    <canvas id='c' class="" width="600" height="300"></canvas>
-                    <div class="buttons">
-                        <div id="clear" onclick="reset_canvas()">&times;</div>
-                        <div id="word" onclick="da_word()">&#8635;</div>
-                    </div>
-                    <div><button onclick="getImageCanvas();recognize_image();">Aceptar</button></div>
                 </div>
-                <!--<img id="pic" src="img/numbers.png" onload="recognize_image()">-->
-                <div id="transcription"></div>
+                
+                <canvas id='c' class="" width="100" height="100"></canvas>
+                
+                <div class="buttons">
+                    <button id="clear" onclick="reset_canvas()">Limpiar</button>
+                    <button id="word" onclick="da_word()">Refrescar</button>
+                    <button id="butProcess" onclick="recognize_image();">Aceptar</button>
+                </div>
             </div>
-            <script src="js/actionsPag.js"></script>
-            <script>
-                reset_canvas()
-            </script>
-	</body>	
+            
+            <div id="transcription"></div>
+            
+            <div><img src="" id="laimagen"/></div>
+            
+        </div>
+        <script src="js/actionsPag.js"></script>
+        <script>reset_canvas();</script>
+        <script>
+            var canvas = document.getElementById("c");
+            
+            var png = document.getElementById("butProcess");
+            png.addEventListener("click",function(){
+              // Exportar la imagen
+                var img = document.getElementById("laimagen");
+                img.src = canvas.toDataURL("image/png");
+            },false);
+        </script>
+    </body>	
 </html>
 
 
