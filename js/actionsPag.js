@@ -99,3 +99,11 @@ function runOCR(image_data, raw_feed){
         lastWorker = worker;
 }
 
+function clearFrame(){
+    var divTranscription = document.getElementById("transcription");
+    var divImg = document.getElementById("laimagen");
+    divTranscription.innerHTML = "";
+    reset_canvas();
+    divImg.src  = "";
+}
+
