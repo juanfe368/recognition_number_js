@@ -8,13 +8,13 @@ and open the template in the editor.
     Author     : juanfe
 */
 
-body {
+/*body {
         background: whiteSmoke;
         font-family: sans-serif;
         margin: 30px;
-}
+}*/
 #transcription, #pic {
-        background: white;
+        /*background: white;*/
         display: inline-block;
         border: 1px solid #ddd;
         margin: 10px;
@@ -24,10 +24,15 @@ body {
         padding: 30px;
         min-width: 300px;
         color: gray;
+        text-align: center;
 }
 #transcription.done {
         color: black;
 }
 #main {
         display: flex;
+}
+
+.divCanvas{
+    text-align: center;
 }

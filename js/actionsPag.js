@@ -5,15 +5,19 @@
  */
 
 function recognize_image(){
-    document.getElementById('transcription').innerText = "(Recognizing...)";
+    //document.getElementById('transcription').innerText = "(Recognizing...)";
+    document.getElementById('transcription').value = "(Reconociendo...)";
 
     OCRAD(document.getElementById("c"), {
     //OCRAD(document.getElementById("laimagen"), {
+    //OCRAD(document.getElementById("canvasRespuest"), {
             numeric: true,
     }, function(text){
-            document.getElementById('transcription').className = "done";
-            document.getElementById('transcription').innerText = text;
+//            document.getElementById('transcription').className = "done";
+            //document.getElementById('transcription').innerText = text;
+            document.getElementById('transcription').value = text;
     });
+    //this.getCalificacion(document.getElementById('transcription').value);
 }
 function getImageCanvas(){
     var canvas = document.getElementById("c");
@@ -107,3 +111,47 @@ function clearFrame(){
     divImg.src  = "";
 }
 
+function cargarFX(){
+    try {
+        var canvas = fx.canvas();
+        return canvas;
+    } catch (e) {
+        alert(e);
+        return;
+    }
+}
+
+function filter1(image){
+    var canv = cargarFX();
+    canv.id = "canvasRespuest";
+    canv.name = "canvasRespuest";
+    // convert the image to a texture
+    var texture = canv.texture(image);
+     // apply the ink filter
+    	
+    canv.draw(texture).edgeWork(10).update();
+    //canv.draw(texture).noise(0.5).update();
+    //canv.draw(texture).dotScreen(320, 239.5, 1.1, 3).update();
+    image.parentNode.insertBefore(canv, image);
+    image.parentNode.removeChild(image);
+}
+
+function loadOperacion(){
+    var valorAleatorio1 = Math.round(Math.random()*10);
+    var valorAleatorio2 = Math.round(Math.random()*10);
+    document.getElementById("inputField1").value = valorAleatorio1;
+    document.getElementById("inputField2").value = valorAleatorio2;
+    document.getElementById("inputFieldRespuest").value = valorAleatorio1+valorAleatorio2;
+}
+
+function getCalificacion(numRespuesUser){
+    var valorRespuestCorrect = document.getElementById("inputFieldRespuest").value;
+    if(valorRespuestCorrect==numRespuesUser){
+        alert("Respuesta Correcta");
+    }
+    else{
+        alert("Respuesta Incorrecta");
+    }
+}
+
+loadOperacion();
