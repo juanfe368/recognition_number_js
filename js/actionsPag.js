@@ -16,8 +16,9 @@ function recognize_image(){
 //            document.getElementById('transcription').className = "done";
             //document.getElementById('transcription').innerText = text;
             document.getElementById('transcription').value = text;
+            this.getCalificacion(document.getElementById('transcription').value);
+            reset_canvas();
     });
-    //this.getCalificacion(document.getElementById('transcription').value);
 }
 function getImageCanvas(){
     var canvas = document.getElementById("c");
@@ -139,19 +140,82 @@ function filter1(image){
 function loadOperacion(){
     var valorAleatorio1 = Math.round(Math.random()*10);
     var valorAleatorio2 = Math.round(Math.random()*10);
+    
+    if(valorAleatorio2>valorAleatorio1){
+        valorAleatorio1=valorAleatorio2+1;
+    }
+    
     document.getElementById("inputField1").value = valorAleatorio1;
     document.getElementById("inputField2").value = valorAleatorio2;
-    document.getElementById("inputFieldRespuest").value = valorAleatorio1+valorAleatorio2;
+    document.getElementById("operaField").value = getOperationRandom();
+    
+    var valor1 = document.getElementById("inputField1").value;
+    var valor2 = document.getElementById("inputField2").value;
+    var operation = document.getElementById("operaField").value;
+    
+    document.getElementById("inputFieldRespuest").value = getRespuest(operation, valor1, valor2);
 }
 
 function getCalificacion(numRespuesUser){
     var valorRespuestCorrect = document.getElementById("inputFieldRespuest").value;
-    if(valorRespuestCorrect==numRespuesUser){
-        alert("Respuesta Correcta");
+    if(valorRespuestCorrect==numRespuesUser.trim()){
+        document.getElementById("divRespuestInCorrect").style.display='none';
+        document.getElementById("divRespuestCorrect").style.display='initial';
     }
     else{
-        alert("Respuesta Incorrecta");
+        document.getElementById("divRespuestCorrect").style.display='none';
+        document.getElementById("divRespuestInCorrect").style.display='initial';
     }
+    loadOperacion();
 }
 
+function getOperationRandom(){
+    var arrayOperations = ["+","-"];
+    var valorAleatorio = Math.round(Math.random()*1);
+    return arrayOperations[valorAleatorio];
+}
+
+function getRespuest(operation, valor1, valor2){
+    var respuest = 0;
+    if(operation=="+"){
+        respuest =  parseInt(valor1)+parseInt(valor2); 
+    }
+    else if(operation=="-"){
+        respuest =  parseInt(valor1)-parseInt(valor2); 
+    }
+    return respuest;
+}
+
+var cronometro;
+
+function carga()
+{
+
+    var contador_s =0;
+    var contador_m =0;
+    var s = document.getElementById("segundos");
+    var m = document.getElementById("minutos");
+
+    cronometro = setInterval(
+    function(){
+            if(contador_s==60)
+            {
+                contador_s=0;
+                contador_m++;
+                /*m.innerHTML = contador_m;
+
+                if(contador_m==60)
+                {
+                    contador_m=0;
+                }*/
+            }
+
+            s.innerHTML = contador_s+" Segundos";
+            contador_s++;
+    }
+    ,1000);
+
+}
+
+carga();
 loadOperacion();

@@ -12,9 +12,9 @@ and open the template in the editor.
         background: whiteSmoke;
         font-family: sans-serif;
         margin: 30px;
-}*/
+}
 #transcription, #pic {
-        /*background: white;*/
+        background: white;
         display: inline-block;
         border: 1px solid #ddd;
         margin: 10px;
@@ -35,4 +35,48 @@ and open the template in the editor.
 
 .divCanvas{
     text-align: center;
+}*/
+
+/*EDICIÓN BOOTSTRAP*/
+.divHeader{
+    height: 130px;
+    margin: 0px;
+    text-align: center;
+    background-color: #0088CE;
+}
+.paige_complete{
+    padding: 0px;
+}
+
+.divImg{
+    background-image: url(../img/banner.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat, repeat;
+    height: 450px;
+}
+
+.titleText{
+    color: #F5921D;
+    font-weight: bold;
+    font-size: 100px;
+}
+
+.panel-not-bg{
+    background-color: initial;
+}
+
+.btnImage{
+    width: 100px;
+}
+
+.divPlay{
+    background-color: #F89018;
+}
+
+.fieldOperation{
+    font-size: xx-large;
+}
+
+.panelMain{
+    background-color: salmon;
 }

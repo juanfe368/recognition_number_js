@@ -2,77 +2,109 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
         <title>Reconocimiento Digital de Imagenes</title>
         <script src="js/jquery-1.12.0.min.js"></script>
-        <script src="jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
-        <link rel="stylesheet" href="jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css">
-        <link rel="stylesheet" type="text/css" href="css/pagStyle.css">
+        <!--<link rel="stylesheet" href="jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css">-->
         <script src="ocrad.js-master/ocrad.js"></script>
         <script src="js/glfx.js"></script>
+        
+        <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+        <link href="startbootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Custom CSS -->
+        <link href="css/freelancer.css" rel="stylesheet">
+        <link href="startbootstrap/css/freelancer.css" rel="stylesheet">
+        
+        <link rel="stylesheet" type="text/css" href="css/pagStyle.css">
 
     </head>
     <body onload="cargarFX();">
-        <div data-role="page" id="pageone" data-theme="b">
-            <div data-role="header">
-                <h1>LEARNING PLAYS</h1>
+        <div id="pageone" class="container-fluid paige_complete">
+          <div class = "navbar navbar-default divHeader">
+              <h1 class="titleText">MATH KIDS</h1>
           </div>
-            <div data-role="main" class="ui-content">
-                <div id="demo">
+            <div>
+                <div id="demo" class="container-fluid divImg">
                     <div class="output">
                         <div id="output">
                             <div id="text"></div>
                             <span id="timing"></span>
                         </div>
                     </div>
-                    <div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset" data-role="fieldcontain" >
-                        <input type="text" id="inputField1" name="inputField1" readonly style="text-align: center;">
-                        <input type="text" id="inputField2" name="inputField2" readonly style="text-align: center;">
-                        <input type="hidden" id="inputFieldRespuest" name="inputFieldRespuest"> 
-                    </div>
-                    <div class="divCanvas">
-                        <canvas id='c' class="" width="100" height="100"></canvas>
-                    </div>
-
-                    <div class="buttons">
-                        <button id="clear" onclick="reset_canvas()">Limpiar</button>
-                        <!--<button id="word" onclick="da_word()">Refrescar</button>-->
-                        <button id="word" onclick="clearFrame();">Refrescar</button>
-                        <!--<button id="butProcess" onclick="ecognize_image();">Aceptar</button>-->
-                        <button id="butProcess" onclick="recognize_image();">Aceptar</button>
+                    <div class="rows">
+                        <div class="panel col-lg-12 text-center panel-not-bg">
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <div class="panel-body">
+                                <a href="#divJuego" class="btn btn-success">
+                                    <span class="glyphicon glyphicon-play btnImage"></span>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-                <!--<div id="transcription" data-position="fixed"></div>-->
-                <div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset" data-role="fieldcontain">
-                    <input type="text" id="transcription" readonly> 
+                
+                <div class="row divPlay">
+                    <div class="col-lg-6 col-lg-offset-3">
+                        <div class="panel panel-primary panelMain">
+                            <div id="divJuego" class="panel-heading text-center">
+                                <h4>¡¡¡BUENA SUERTE!!!</h4>
+                            </div>
+                            <div class="panel-body">
+                                <span id="segundos" class="form-control text-center" style="font-size: 20px">0 Segundos</span>
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <input type="text" id="inputField1" name="inputField1" class="col-lg-4 text-center fieldOperation" readonly>
+                                    <input type="text" id="operaField" name="operaField" class="col-lg-4 text-center fieldOperation" readonly>
+                                    <input type="text" id="inputField2" name="inputField2" class="col-lg-4 text-center fieldOperation" readonly>
+                                    <input type="hidden" id="inputFieldRespuest" name="inputFieldRespuest">
+                                </div>
+                                <div id="divRespuest" class="text-center">
+                                    <div id="divRespuestCorrect" class="alert alert-success" style="display:none;">
+                                        <strong>Correcto!</strong> Sigue así.
+                                    </div>
+                                    <div id="divRespuestInCorrect" class="alert alert-danger" style="display:none;">
+                                        <strong>Incorrecto!</strong> Intentalo nuevamente.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-body text-center">
+                                <canvas id='c' width="400" height="200"></canvas>
+                            </div>
+                            <div class="panel-body text-center">
+                                <button id="clear" onclick="reset_canvas()" class="btn btn-success btn-lg">Limpiar</button>
+                                <button id="word" onclick="clearFrame();" class="btn btn-success btn-lg">Refrescar</button>
+                                <button id="butProcess" onclick="recognize_image();" class="btn btn-success btn-lg">Aceptar</button>
+                            </div>
+                            <div class="panel-body text-center">
+                                <input type="text" id="transcription" readonly class="form-control"> 
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <!--<div><img src="" id="laimagen"/></div>-->
+            </div>
 
-                <div><img src="" id="laimagen"/></div>
-            </div>
-            <div data-role="footer" data-position="fixed">
-                <ul data-role="listview" data-inset="true">
-                  <li>
-                    <a href="#">
-                    <!--<img src="http://www.flamingo.com.co/sites/default/files/soat-fiao.png">-->
-                    <h2>AYUDA</h2>
-                    </a>
-                  </li>
-                </ul>
-            </div>
         </div>
         <script src="js/actionsPag.js"></script>
         <script>reset_canvas();</script>
         <script>
-            var canvas = document.getElementById("c");
+            /*var canvas = document.getElementById("c");
             
             var png = document.getElementById("butProcess");
             png.addEventListener("click",function(){
               // Exportar la imagen
                 var img = document.getElementById("laimagen");
                 img.src = canvas.toDataURL("image/png");
-                filter1(img);
+                //filter1(img);
                 //recognize_image();
-            },false);
+            },false);*/
         </script>
     </body>	
 </html>
