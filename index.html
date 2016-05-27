@@ -8,7 +8,7 @@
         <meta name="author" content="">
         <title>Reconocimiento Digital de Imagenes</title>
         <script src="js/jquery-1.12.0.min.js"></script>
-        <!--<link rel="stylesheet" href="jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css">-->
+        <script src="startbootstrap/js/bootstrap.min.js"></script>
         <script src="ocrad.js-master/ocrad.js"></script>
         <script src="js/glfx.js"></script>
         
@@ -78,9 +78,12 @@
                                 <canvas id='c' width="400" height="200"></canvas>
                             </div>
                             <div class="panel-body text-center">
-                                <button id="clear" onclick="reset_canvas()" class="btn btn-success btn-lg">Limpiar</button>
-                                <button id="word" onclick="clearFrame();" class="btn btn-success btn-lg">Refrescar</button>
+                                <button id="clear" onclick="clearFrame()" class="btn btn-success btn-lg">Limpiar</button>
+                                <!--<button id="clear" onclick="reset_canvas()" class="btn btn-success btn-lg">Limpiar</button>-->
+                                <!--<button id="word" onclick="clearFrame();" class="btn btn-success btn-lg">Refrescar</button>-->
                                 <button id="butProcess" onclick="recognize_image();" class="btn btn-success btn-lg">Aceptar</button>
+                                <button id="butStart" onclick="startGame();" class="btn btn-success btn-lg">Empezar</button>
+                                <button id="butInstruction" onclick="startGame();" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">Como jugar?</button>
                             </div>
                             <div class="panel-body text-center">
                                 <input type="text" id="transcription" readonly class="form-control"> 
@@ -88,6 +91,52 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Frame oculto instrucciones -->
+                <div class="modal fade" id="myModal" role="dialog">
+                  <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">¿Como jugar?</h4>
+                      </div>
+                      <div class="modal-body">
+                          <p>Hola y bienvenido a Math Kids, un juego donde podras aprender a sumar, restar y escribir los números.</p>
+                          <p>1) Para comenzar oprime el botón de empezar</p>
+                          <p>2) Tendras 60 segundos para resolver 10 preguntas de suma y resta de números</p>
+                          <p>3) Para poder escribir la respuesta usa la parte blanca que esta debajo de la pregunta</p>
+                          <p>4) Identifica que tipo de operación es suma o resta y escribe la respuesta correcta</p>
+                          <p>5) Juega varias veces para ir mejorando tu puntaje y veras como poco a poco  mejoraras</p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Hasta aqui el frame de las instrucciones -->
+                
+                <!-- Frame oculto instrucciones -->
+                <div class="modal fade" id="myModalResults" role="dialog">
+                  <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Puntaje</h4>
+                      </div>
+                      <div class="modal-body">
+                          <p id="paragraphResults"></p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Hasta aqui el frame de las instrucciones -->
+                
                 <!--<div><img src="" id="laimagen"/></div>-->
             </div>
 

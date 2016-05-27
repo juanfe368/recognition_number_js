@@ -161,12 +161,25 @@ function getCalificacion(numRespuesUser){
     if(valorRespuestCorrect==numRespuesUser.trim()){
         document.getElementById("divRespuestInCorrect").style.display='none';
         document.getElementById("divRespuestCorrect").style.display='initial';
+        respuestasAcertadas++;
     }
     else{
         document.getElementById("divRespuestCorrect").style.display='none';
         document.getElementById("divRespuestInCorrect").style.display='initial';
+        respuetsasIncorrectas++;
     }
+    
+    cantidadPreguntas--;
+    if(cantidadPreguntas==5){
+        endGame();
+    }
+    
     loadOperacion();
+}
+
+function hiddenRespuests(){
+    document.getElementById("divRespuestInCorrect").style.display='none';
+    document.getElementById("divRespuestCorrect").style.display='none';
 }
 
 function getOperationRandom(){
@@ -217,5 +230,36 @@ function carga()
 
 }
 
-carga();
-loadOperacion();
+function startGame(){
+    intentosRespuestas = 0;
+    cantidadPreguntas = 10;
+    respuestasAcertadas = 0;
+    respuetsasIncorrectas = 0;
+    
+    carga();
+    loadOperacion();
+    hiddenRespuests();
+    document.getElementById("butStart").disabled=true;
+}
+
+var intentosRespuestas = 0;
+var cantidadPreguntas = 10;
+
+var respuestasAcertadas = 0;
+var respuetsasIncorrectas = 0;
+
+function endGame(){
+    document.getElementById("butStart").disabled=false;
+    hiddenRespuests();
+    showResults();
+    clearInterval(cronometro);
+}
+
+function showResults(){
+    $('#myModalResults').modal('show');
+    var textoResult = document.getElementById("paragraphResults");
+    textoResult.innerHTML = "Respuestas correctas: "+respuestasAcertadas+".<br> Repuestas incorrectas: "+respuetsasIncorrectas+".<br>"+"Excelente trabajo sigue así y mejora tu puntaje";
+}
+
+//carga();
+//loadOperacion();
