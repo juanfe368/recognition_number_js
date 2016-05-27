@@ -170,7 +170,7 @@ function getCalificacion(numRespuesUser){
     }
     
     cantidadPreguntas--;
-    if(cantidadPreguntas==5){
+    if(cantidadPreguntas==10){
         endGame();
     }
     
