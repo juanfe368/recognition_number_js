@@ -70,7 +70,10 @@
                                         <strong>Correcto!</strong> Sigue así.
                                     </div>
                                     <div id="divRespuestInCorrect" class="alert alert-danger" style="display:none;">
-                                        <strong>Incorrecto!</strong> Intentalo nuevamente.
+                                        <strong>Que mal fallaste esta pregunta intenta la proxima!</strong>
+                                    </div>
+                                    <div id="divAlert" class="alert alert-info" style="display:none;">
+                                        <strong>No es correcto!</strong> Intentalo nuevamente.
                                     </div>
                                 </div>
                             </div>
@@ -88,10 +91,13 @@
                             <div class="panel-body text-center">
                                 <input type="text" id="transcription" readonly class="form-control"> 
                             </div>
+                            <div class="panel-body text-center">
+                                <button id="butAyuda" name="butAyuda" class="btn btn-success btn-lg" data-toggle="modal" data-target="#help">Como dibujar</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-
+                
                 <!-- Frame oculto instrucciones -->
                 <div class="modal fade" id="myModal" role="dialog">
                   <div class="modal-dialog">
@@ -137,6 +143,26 @@
                 </div>
                 <!-- Hasta aqui el frame de las instrucciones -->
                 
+                <!-- Frame Help -->
+                <div class="modal fade" id="help" role="dialog">
+                  <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Números para dibujar</h4>
+                      </div>
+                      <div class="modal-body">
+                          <img src="img/numbersInstruc.png" style="width: 100%;">
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Fin Frame Help -->
+                
                 <!--<div><img src="" id="laimagen"/></div>-->
             </div>
 
@@ -155,6 +181,18 @@
                 //recognize_image();
             },false);*/
         </script>
+        <!-- FOOTER PAG -->
+        <footer style="background-color: #F89018;">
+            <div class="container" style="background-color: #F89018;">
+                <div class="row panel" style="background-color: #F89018;">
+                    <p>© Diseñado por Juan Felipe Arias y Carolina Gonzalez - Derechos reservados 2016
+                        <!--para <a href="http://asisjure.com/" target="_blank">ASISJURE.COM</a> - Derechos reservados
+                        <label class="nav navbar-nav navbar-right"></label>-->
+                    </p>
+                </div>
+            </div>
+        </footer>
+        <!-- HASTA AQUI EL FOOTER -->
     </body>	
 </html>
 

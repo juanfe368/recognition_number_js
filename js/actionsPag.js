@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 
+var numIntentos = 0;
+
 function recognize_image(){
     //document.getElementById('transcription').innerText = "(Recognizing...)";
     document.getElementById('transcription').value = "(Reconociendo...)";
@@ -138,6 +140,7 @@ function filter1(image){
 }
 
 function loadOperacion(){
+    numIntentos = 2;
     var valorAleatorio1 = Math.round(Math.random()*10);
     var valorAleatorio2 = Math.round(Math.random()*10);
     
@@ -159,18 +162,28 @@ function loadOperacion(){
 function getCalificacion(numRespuesUser){
     var valorRespuestCorrect = document.getElementById("inputFieldRespuest").value;
     if(valorRespuestCorrect==numRespuesUser.trim()){
+        document.getElementById("divAlert").style.display='none';
         document.getElementById("divRespuestInCorrect").style.display='none';
         document.getElementById("divRespuestCorrect").style.display='initial';
         respuestasAcertadas++;
     }
+    else if(valorRespuestCorrect!=numRespuesUser.trim()&&numIntentos!=0){
+        document.getElementById("divAlert").style.display='initial';
+        document.getElementById("divRespuestInCorrect").style.display='none';
+        document.getElementById("divRespuestCorrect").style.display='none';
+        numIntentos--;
+        return;
+    }
     else{
+        document.getElementById("divAlert").style.display='none';
         document.getElementById("divRespuestCorrect").style.display='none';
         document.getElementById("divRespuestInCorrect").style.display='initial';
+        document.getElementById("divRespuestInCorrect").innerHTML = " La Respuesta correcta era: "+valorRespuestCorrect;
         respuetsasIncorrectas++;
     }
     
     cantidadPreguntas--;
-    if(cantidadPreguntas==10){
+    if(cantidadPreguntas==0){
         endGame();
     }
     
@@ -215,6 +228,7 @@ function carga()
             {
                 contador_s=0;
                 contador_m++;
+                endGame();
                 /*m.innerHTML = contador_m;
 
                 if(contador_m==60)
@@ -235,6 +249,7 @@ function startGame(){
     cantidadPreguntas = 10;
     respuestasAcertadas = 0;
     respuetsasIncorrectas = 0;
+    numIntentos = 2;
     
     carga();
     loadOperacion();
@@ -260,6 +275,3 @@ function showResults(){
     var textoResult = document.getElementById("paragraphResults");
     textoResult.innerHTML = "Respuestas correctas: "+respuestasAcertadas+".<br> Repuestas incorrectas: "+respuetsasIncorrectas+".<br>"+"Excelente trabajo sigue así y mejora tu puntaje";
 }
-
-//carga();
-//loadOperacion();
