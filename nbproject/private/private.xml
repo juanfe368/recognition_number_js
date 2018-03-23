@@ -2,6 +2,14 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group/>
+=======
+        <group>
+            <file>file:/Applications/XAMPP/htdocs/Project_Recognition_Number/index.html</file>
+            <file>file:/Applications/XAMPP/htdocs/Project_Recognition_Number/js/actionsPag.js</file>
+            <file>file:/Applications/XAMPP/htdocs/Project_Recognition_Number/css/pagStyle.css</file>
+        </group>
+>>>>>>> d344361f2e44a492abaab1a98a06ea3f51e81b0e
     </open-files>
 </project-private>
