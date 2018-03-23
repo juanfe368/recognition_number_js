@@ -1,17 +1,15 @@
 <!doctype html>
 <html lang="es">
     <head>
+        <meta name="language" content="ES">
+        <meta http-equiv="Content-Language" content="ES-ES">
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="Aprende a escribir los números">
-        <meta name="keywords" content="dibujar numero, dibujar numeros, pintar numeros, pintar numero, escribir numero, escribir numeros, aprender a escribir numeros, dibujar digitos, escribir digitos, enseñar a niños a dibujar numeros, juegos para dibujar numeros">
+        <meta name="keywords" content="dibujar numeros, pintar numeros, escribir numeros, aprender a escribir numeros, enseñar a niños a dibujar numeros, juegos para dibujar numeros, juegos para aprender a sumar, juegos para escribir numeros, juegos para aprender las operaciones">
         <meta name="author" content="Gamethemed">
         <title>Aprende a dibujar números</title>
-        <script src="js/jquery-1.12.0.min.js"></script>
-        <script src="startbootstrap/js/bootstrap.min.js"></script>
-        <script src="ocrad.js-master/ocrad.js"></script>
-        <script src="js/glfx.js"></script>
 
         <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
         <link href="startbootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -25,7 +23,7 @@
     <body onload="cargarFX();">
         <div id="pageone" class="container-fluid paige_complete">
           <div class = "navbar navbar-default divHeader">
-              <h1 class="titleText">Dibujando Números</h1>
+              <h1 class="titleText">Dibuja los Números</h1>
           </div>
             <div>
                 <div id="demo" class="container-fluid divImg">
@@ -54,7 +52,7 @@
                     <div class="col-lg-6 col-lg-offset-3">
                         <div class="panel panel-primary panelMain">
                             <div id="divJuego" class="panel-heading text-center">
-                                <h4>¡¡¡BUENA SUERTE!!!</h4>
+                                <h4>Oprime empezar y dibuja los números de los resultados de las operaciones</h4>
                             </div>
                             <div class="panel-body">
                                 <span id="segundos" class="form-control text-center" style="font-size: 20px">0 Segundos</span>
@@ -85,15 +83,15 @@
                                 <button id="clear" onclick="clearFrame()" class="btn btn-success btn-lg">Limpiar</button>
                                 <!--<button id="clear" onclick="reset_canvas()" class="btn btn-success btn-lg">Limpiar</button>-->
                                 <!--<button id="word" onclick="clearFrame();" class="btn btn-success btn-lg">Refrescar</button>-->
-                                <button id="butProcess" onclick="recognize_image();" class="btn btn-success btn-lg">Aceptar</button>
+                                <button id="butProcess" onclick="recognize_image();" class="btn btn-success btn-lg">Calificar</button>
                                 <button id="butStart" onclick="startGame();" class="btn btn-success btn-lg">Empezar</button>
-                                <button id="butInstruction" onclick="startGame();" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">Como jugar?</button>
+                                <button id="butInstruction" onclick="startGame();" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">¿Como se juega?</button>
                             </div>
                             <div class="panel-body text-center">
                                 <input type="text" id="transcription" readonly class="form-control">
                             </div>
                             <div class="panel-body text-center">
-                                <button id="butAyuda" name="butAyuda" class="btn btn-success btn-lg" data-toggle="modal" data-target="#help">Como dibujar</button>
+                                <button id="butAyuda" name="butAyuda" class="btn btn-success btn-lg" data-toggle="modal" data-target="#help">¿Como dibujar?</button>
                             </div>
                         </div>
                     </div>
@@ -197,4 +195,8 @@
         </footer>
         <!-- HASTA AQUI EL FOOTER -->
     </body>
+    <script src="js/jquery-1.12.0.min.js"></script>
+    <script src="startbootstrap/js/bootstrap.min.js"></script>
+    <script src="ocrad.js-master/ocrad.js"></script>
+    <script src="js/glfx.js"></script>
 </html>
