@@ -1,4 +1,4 @@
-/* 
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -28,14 +28,14 @@ function getImageCanvas(){
     var img = document.getElementById("c");
     ctx.drawImage(img, 10, 10);
 }
-                    
+
 var c = document.getElementById('c'),
     o = c.getContext('2d');
 
 function reset_canvas(){
         o.fillStyle = 'white';
         o.fillRect(0, 0, c.width, c.height);
-        o.fillStyle = 'black';	
+        o.fillStyle = 'black';
 }
 
 // here's a really simple little drawing app so people can try their luck at
@@ -55,7 +55,7 @@ c.onmousemove = function(e){
             o.fill();
     }
     if(drag){
-        var x = e.clientX - rect.left, 
+        var x = e.clientX - rect.left,
                 y = e.clientY - rect.top;
 
         if(lastX && lastY){
@@ -93,13 +93,13 @@ function runOCR(image_data, raw_feed){
                 if('innerText' in document.getElementById("text")){
                         document.getElementById("text").innerText = e.data;
                 }else{
-                        document.getElementById("text").textContent = e.data;	
+                        document.getElementById("text").textContent = e.data;
                 }
                 document.getElementById('timing').innerHTML = 'recognition took ' + ((Date.now() - start)/1000).toFixed(2) + 's';
         }
         var start = Date.now();
         if(!raw_feed){
-            image_data = o.getImageData(0, 0, c.width, c.height);	
+            image_data = o.getImageData(0, 0, c.width, c.height);
         }
 
         worker.postMessage(image_data);
@@ -131,7 +131,7 @@ function filter1(image){
     // convert the image to a texture
     var texture = canv.texture(image);
      // apply the ink filter
-    	
+
     canv.draw(texture).edgeWork(10).update();
     //canv.draw(texture).noise(0.5).update();
     //canv.draw(texture).dotScreen(320, 239.5, 1.1, 3).update();
@@ -143,19 +143,19 @@ function loadOperacion(){
     numIntentos = 2;
     var valorAleatorio1 = Math.round(Math.random()*10);
     var valorAleatorio2 = Math.round(Math.random()*10);
-    
+
     if(valorAleatorio2>valorAleatorio1){
         valorAleatorio1=valorAleatorio2+1;
     }
-    
+
     document.getElementById("inputField1").value = valorAleatorio1;
     document.getElementById("inputField2").value = valorAleatorio2;
     document.getElementById("operaField").value = getOperationRandom();
-    
+
     var valor1 = document.getElementById("inputField1").value;
     var valor2 = document.getElementById("inputField2").value;
     var operation = document.getElementById("operaField").value;
-    
+
     document.getElementById("inputFieldRespuest").value = getRespuest(operation, valor1, valor2);
 }
 
@@ -181,12 +181,12 @@ function getCalificacion(numRespuesUser){
         document.getElementById("divRespuestInCorrect").innerHTML = " La Respuesta correcta era: "+valorRespuestCorrect;
         respuetsasIncorrectas++;
     }
-    
+
     cantidadPreguntas--;
     if(cantidadPreguntas==0){
         endGame();
     }
-    
+
     loadOperacion();
 }
 
@@ -204,10 +204,10 @@ function getOperationRandom(){
 function getRespuest(operation, valor1, valor2){
     var respuest = 0;
     if(operation=="+"){
-        respuest =  parseInt(valor1)+parseInt(valor2); 
+        respuest =  parseInt(valor1)+parseInt(valor2);
     }
     else if(operation=="-"){
-        respuest =  parseInt(valor1)-parseInt(valor2); 
+        respuest =  parseInt(valor1)-parseInt(valor2);
     }
     return respuest;
 }
@@ -250,7 +250,7 @@ function startGame(){
     respuestasAcertadas = 0;
     respuetsasIncorrectas = 0;
     numIntentos = 2;
-    
+
     carga();
     loadOperacion();
     hiddenRespuests();
@@ -274,4 +274,16 @@ function showResults(){
     $('#myModalResults').modal('show');
     var textoResult = document.getElementById("paragraphResults");
     textoResult.innerHTML = "Respuestas correctas: "+respuestasAcertadas+".<br> Repuestas incorrectas: "+respuetsasIncorrectas+".<br>"+"Excelente trabajo sigue así y mejora tu puntaje";
+}
+
+function playAction(){
+  var heightDivOperation = document.getElementById("divJuego").scrollHeight;
+  var heightPage = document.body.scrollHeight;
+  var totalPosition = heightPage-900;
+  console.log("Este es el tamanio de la pagina", heightPage, "El tamanio",heightDivOperation, "y este es el total:",totalPosition);
+  window.scroll({
+    top: totalPosition,
+    left: 0,
+    behavior: 'smooth'
+  });
 }
