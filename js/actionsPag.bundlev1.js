@@ -280,7 +280,6 @@ function playAction(){
   var heightDivOperation = document.getElementById("divJuego").scrollHeight;
   var heightPage = document.body.scrollHeight;
   var totalPosition = heightPage-900;
-  console.log("Este es el tamanio de la pagina", heightPage, "El tamanio",heightDivOperation, "y este es el total:",totalPosition);
   window.scroll({
     top: totalPosition,
     left: 0,
