@@ -280,6 +280,7 @@ function playAction(){
   var heightDivOperation = document.getElementById("divJuego").scrollHeight;
   var heightPage = document.body.scrollHeight;
   var totalPosition = heightPage-900;
+
   window.scroll({
     top: totalPosition,
     left: 0,
