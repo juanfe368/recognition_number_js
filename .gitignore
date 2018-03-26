@@ -69,3 +69,7 @@ typings/
 
 # dotenv environment variables file
 .env
+
+#package.json
+#webpack.config.js
+package-lock.json

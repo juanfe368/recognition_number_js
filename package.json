@@ -1,0 +1,25 @@
+{
+  "name": "recognition_number_js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juanfe368/recognition_number_js.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/juanfe368/recognition_number_js/issues"
+  },
+  "homepage": "https://github.com/juanfe368/recognition_number_js#readme",
+  "devDependencies": {
+    "css-loader": "^0.28.11",
+    "uglifyjs-webpack-plugin": "^1.2.4",
+    "webpack": "^3.8.1"
+  }
+}
