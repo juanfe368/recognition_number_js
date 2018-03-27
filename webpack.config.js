@@ -1,16 +1,17 @@
-var webpack = require('webpack'),
+var webpack = require('webpack');
 var path = require('path');
+const WebpackCleanupPlugin = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    debug: true,
     entry: {
-        numberjs: './js/actionsPag.[hex].js'
+        numberjs: path.join(__dirname, './js/actionsPag.bundlev1.js')
     },
     output: {
-        path: path.join(__dirname, 'dist'),
-        filename: '[name].js'
+        path: path.join(__dirname, './js/dist/'),
+        filename: '[name].[chunkhash].bundle.js'
     },
-    module: {
-        loaders: []
-    }
+    plugins: [
+        new WebpackCleanupPlugin(['./js/dist/'])
+    ]
 };
