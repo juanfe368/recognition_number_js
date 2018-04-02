@@ -85,19 +85,32 @@
                             <canvas id='c' width="400" height="200"></canvas>
                         </div>
                         <div class="panel-body text-center">
-                            <button id="clear" onclick="clearFrame()" class="btn btn-success btn-lg">Limpiar</button>
+                            <button id="clear" onclick="clearFrame()" class="btn btn-warning btn-lg">
+                              <span class="glyphicon glyphicon-erase"></span>
+                            </button>
                             <!--<button id="clear" onclick="reset_canvas()" class="btn btn-success btn-lg">Limpiar</button>-->
                             <!--<button id="word" onclick="clearFrame();" class="btn btn-success btn-lg">Refrescar</button>-->
-                            <button id="butProcess" onclick="recognize_image();" class="btn btn-success btn-lg">Calificar</button>
-                            <button id="butStart" onclick="startGame();" class="btn btn-success btn-lg">Empezar</button>
-                            <button id="butInstruction" onclick="startGame();" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">¿Como se juega?</button>
+                            <button id="butProcess" onclick="recognize_image();" class="btn btn-success btn-lg">
+                              <span class="glyphicon glyphicon-ok"></span>
+                            </button>
+                            <button id="butStart" onclick="startGame();" class="btn btn-primary btn-lg">
+                              <span class="glyphicon glyphicon-play"></span>
+                            </button>
+                            <!--<button id="butInstruction" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">
+                              <span class="glyphicon glyphicon-question-sign"></span>
+                            </button>-->
+                            <button id="butAyuda" name="butAyuda" class="btn btn-info btn-lg" data-toggle="modal" data-target="#help">
+                              <span class="glyphicon glyphicon-pencil"></span>
+                            </button>
                         </div>
                         <div class="panel-body text-center">
                             <input type="text" id="transcription" readonly class="form-control">
                         </div>
-                        <div class="panel-body text-center">
-                            <button id="butAyuda" name="butAyuda" class="btn btn-success btn-lg" data-toggle="modal" data-target="#help">¿Como dibujar?</button>
-                        </div>
+                        <!--<div class="panel-body text-center">
+                            <button id="butAyuda" name="butAyuda" class="btn btn-info btn-lg" data-toggle="modal" data-target="#help">
+                              <span class="glyphicon glyphicon-pencil"></span>
+                            </button>
+                        </div>-->
                     </div>
                 </div>
             </div>
@@ -171,8 +184,8 @@
         </div>
 
     </div>
-    <!--<script src="js/actionsPag.bundlev1.js"></script>-->
-    <script src="js/dist/numberjs.0d920207d378f766c7da.bundle.js"></script>
+    <script src="js/actionsPag.bundlev1.js"></script>
+    <!--<script src="js/dist/numberjs.0d920207d378f766c7da.bundle.js"></script>-->
     <script>
         reset_canvas();
     </script>
