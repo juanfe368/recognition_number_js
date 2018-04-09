@@ -3,8 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-console.log("Nueva prueba");
-var numIntentos = 0;
+
+ var numIntentos = 0;
 
 function recognize_image() {
     //document.getElementById('transcription').innerText = "(Recognizing...)";
@@ -96,11 +96,11 @@ document.body.ondrop = function(e) {
 }
 
 var lastWorker;
-var worker = new Worker('worker.js');
+//var worker = new Worker('worker.js');
 
 function runOCR(image_data, raw_feed) {
     document.getElementById("output").className = 'processing';
-    worker.onmessage = function(e) {
+    /*worker.onmessage = function(e) {
 
         document.getElementById("output").className = '';
 
@@ -110,22 +110,22 @@ function runOCR(image_data, raw_feed) {
             document.getElementById("text").textContent = e.data;
         }
         document.getElementById('timing').innerHTML = 'recognition took ' + ((Date.now() - start) / 1000).toFixed(2) + 's';
-    }
+    }*/
     var start = Date.now();
     if (!raw_feed) {
         image_data = o.getImageData(0, 0, c.width, c.height);
     }
 
-    worker.postMessage(image_data);
-    lastWorker = worker;
+    //worker.postMessage(image_data);
+    //lastWorker = worker;
 }
 
 function clearFrame() {
     var divTranscription = document.getElementById("transcription");
-    var divImg = document.getElementById("laimagen");
+    //var divImg = document.getElementById("laimagen");
     divTranscription.innerHTML = "";
     reset_canvas();
-    divImg.src = "";
+    //divImg.src = "";
 }
 
 function cargarFX() {
