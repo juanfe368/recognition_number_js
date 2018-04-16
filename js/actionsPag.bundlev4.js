@@ -259,6 +259,8 @@ function startGame() {
     respuetsasIncorrectas = 0;
     numIntentos = 2;
 
+    var pathocr = './ocrad.js-master/ocrad.js';
+    include(pathocr);
     carga();
     loadOperacion();
     hiddenRespuests();
@@ -273,6 +275,7 @@ var respuetsasIncorrectas = 0;
 
 function endGame() {
     document.getElementById("butStart").disabled = false;
+    document.getElementById("butProcess").disabled = true;
     hiddenRespuests();
     showResults();
     clearInterval(cronometro);
@@ -294,4 +297,15 @@ function playAction() {
         left: 0,
         behavior: 'smooth'
     });
+}
+
+var chargerOcrad = false;
+
+function include(file_path){
+	var j = document.createElement("script");
+	j.type = "text/javascript";
+    j.src = file_path;
+    chargerOcrad = true;
+    document.getElementById("butProcess").disabled = false;
+	document.body.appendChild(j);
 }
