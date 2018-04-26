@@ -3,7 +3,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
-/* 
+/*
     Created on : 04-may-2016, 22:18:38
     Author     : juanfe
 */
@@ -58,7 +58,7 @@ and open the template in the editor.
 .titleText{
     color: #F5921D;
     font-weight: bold;
-    font-size: 100px;
+    font-size: 50px;
 }
 
 .panel-not-bg{
