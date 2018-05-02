@@ -17,14 +17,17 @@
     <!--<link href="css/freelancer.css" rel="stylesheet">-->
     <link href="startbootstrap/css/freelancer.css" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="css/pagStyle.min.css">
+    <link rel="stylesheet" type="text/css" href="css/pagStyle.min.v2.css">
     <link rel="icon" type="image/png" href="./favicon.ico">
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116925262-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
         gtag('js', new Date());
 
         gtag('config', 'UA-116925262-1');
@@ -34,17 +37,6 @@
 </head>
 
 <body onload="cargarFX();">
-
-  <!-- Faacebook Api -->
-  <div id="fb-root"></div>
-  <script>(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.12';
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));</script>
-  <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-size="large" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
 
     <div id="pageone" class="container-fluid paige_complete">
         <div class="navbar navbar-default divHeader">
@@ -138,6 +130,10 @@
                     </div>
                 </div>
             </div>
+            <div class="iframeShareFace">
+                <iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fwww.gamethemed.com%2F&layout=button&size=large&mobile_iframe=true&width=99&height=28&appId" width="99" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
+                    allowTransparency="true" allow="encrypted-media"></iframe>
+            </div>
 
             <!-- Frame oculto instrucciones -->
             <div class="modal fade" id="myModal" role="dialog">
@@ -211,7 +207,7 @@
         <h2 style="display: none">Juegos de matemáticas para niños pequeños</h2>
 
     </div>
-    <script src="js/actionsPag.bundlev4.js"></script>
+    <script src="js/actionsPag.bundlev5.js"></script>
     <!--<script src="js/dist/numberjs.0d920207d378f766c7da.bundle.js"></script>-->
     <script>
         reset_canvas();
@@ -229,6 +225,7 @@
             </div>
         </div>
     </footer>
+    <!--<div class="fb-share-button" data-href="http://www.gamethemed.com/" data-layout="button" data-size="large" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.gamethemed.com%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartir</a></div>-->
     <!-- HASTA AQUI EL FOOTER -->
 </body>
 
