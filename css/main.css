@@ -1,0 +1,112 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+
+
+/*
+    Created on : 04-may-2016, 22:18:38
+    Author     : juan.arias@gamethemed.com
+*/
+
+/*EDICIÓN BOOTSTRAP*/
+@@font-face {
+  font-family: timeburner;
+  src: url(./css/fonts/timeburner/timeburnernormal.ttf);
+}
+
+h1{
+  font-family: timeburner;
+}
+
+h2{
+  font-family: timeburner;
+}
+
+h3{
+  font-family: timeburner;
+}
+
+h4{
+  font-family: timeburner;
+}
+
+p{
+  font-family: timeburner;
+}
+
+.generalstyle{
+  text-transform: none !important;
+}
+
+.divHeader {
+    /*height: 130px;*/
+    height: 70px;
+    margin: 0px;
+    text-align: center;
+    background-color: #0088CE;
+}
+
+.paige_complete {
+    padding: 0px;
+}
+
+.divImg {
+    background-image: url(../img/banner.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat, repeat;
+    height: 450px;
+}
+
+.titleText {
+    /*color: #F5921D;*/
+    color: white;
+    font-weight: bold;
+    /*font-size: 50px;*/
+    font-size: 30px;
+}
+
+.panel-not-bg {
+    background-color: initial;
+}
+
+.btnImage {
+    width: 100px;
+}
+
+.divPlay {
+    background-color: #F89018;
+}
+
+.fieldOperation {
+    font-size: xx-large;
+}
+
+.panelMain {
+    background-color: salmon;
+}
+
+.iframeShareFace {
+    background-color: #F89018;
+    width: 100%;
+    text-align: center;
+}
+
+.panel-header-main {
+  background-color: #65be47 !important;
+  border-color: #53d611 !important;
+}
+
+.subtitleh2 {
+  color: white;
+  text-transform: none;
+}
+
+.subtitleh4 {
+  text-transform: none;
+}
+
+.pagemedium {
+  padding-top: 50px;
+}
