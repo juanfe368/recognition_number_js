@@ -61,6 +61,8 @@ app.controller('myCtrl', function($scope) {
     }
 
     $scope.chooseAnswer = function(){
+      console.log('answeruser:',$scope.data.answeruser);
+      console.log('valueAnswer:',$scope.data.operation.valueAnswer);
 
       if($scope.data.answeruser==$scope.data.operation.valueAnswer){
         $scope.data.answercorrect++;
