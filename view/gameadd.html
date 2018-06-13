@@ -86,40 +86,24 @@
                     <h2 class="subtitleh2 text-center">Suma los números y escoge la respuesta correcta</h2>
                   </div>
                   <div class="panel panel-body">
-                    <div ng-repeat="(key, value) in operation" class="panel col-lg-12">
+                    <!--<h1 ng-repeat="x in data.operation">{{x}}</h1>-->
+                    <!--<div ng-repeat="(key, value) in data.operation" class="panel col-lg-12" ng-model="data.operation">-->
+                    <div class="panel col-lg-12">
                       <div class="col-lg-5">
-                        <input type="text" name="" value="value.valorInital" class="form-control input-lg text-center">
+                        <input type="text" name="" value="{{data.valueInitial}}" class="form-control input-lg text-center">
                       </div>
                       <div class="col-lg-2 text-center">
                         <h4 class="glyphicon glyphicon-plus"></h4>
                       </div>
                       <div class="col-lg-5">
-                        <input type="text" name="" ng-bind="value.valorFinal" class="form-control input-lg text-center">
+                        <input type="text" name="" value="{{data.valueFinal}}" class="form-control input-lg text-center">
                       </div>
                     </div>
 
                     <div class="col-lg-12 text-center">
-                      <div class="col-lg-3">
-                        <label class="containerlabel"> 1
-                            <input type="radio" name="optradio">
-                            <span class="checkmark"></span>
-                        </label>
-                      </div>
-                      <div class="col-lg-3">
-                        <label class="containerlabel"> 2
-                            <input type="radio" name="optradio">
-                            <span class="checkmark"></span>
-                        </label>
-                      </div>
-                      <div class="col-lg-3">
-                        <label class="containerlabel"> 3
-                            <input type="radio" name="optradio">
-                            <span class="checkmark"></span>
-                        </label>
-                      </div>
-                      <div class="col-lg-3">
-                        <label class="containerlabel"> 4
-                            <input type="radio" name="optradio">
+                      <div class="col-lg-3" ng-repeat="(key, value) in data.answers">
+                        <label class="containerlabel"> {{value}}
+                            <input type="radio" name="optradio" ng-click="chooseAnswer()" ng-model="data.answeruser" value="{{value}}">
                             <span class="checkmark"></span>
                         </label>
                       </div>
@@ -148,9 +132,9 @@
     <!-- HASTA AQUI EL FOOTER -->
 </body>
 
-<script type="text/javascript" src="../js/jquery-1.12.0.min.js"></script>
-<script type="text/javascript" src="../js/angular.min.js"></script>
-<script type="text/javascript" src="../js/addmain.js"></script>
-<script type="text/javascript" src="../js/main.js"></script>
+<script src="../js/jquery-1.12.0.min.js"></script>
+<script src="../js/angular.min.js"></script>
+<script src="../js/addmain.js"></script>
+<script src="../js/main.js"></script>
 
 </html>
