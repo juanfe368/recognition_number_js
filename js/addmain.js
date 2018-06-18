@@ -8,8 +8,22 @@ var app = angular.module("myApp", []);
         "Ernst Handel",
     ]
 });*/
+app.factory('MyTimer', function($interval){
+    return function(delay){
+        var initialMs= (new Date()).getTime();
+        var result = {totalMilliseconds:0, counts:0};
+        $interval(function() {
+            result.totalMilliseconds = (new Date()).getTime() - initialMs;
+            result.counts++;
+        }, delay);
+        return result;
+    };
+ });
 
-app.controller('myCtrl', function($scope) {
+app.controller('myCtrl', function($scope, MyTimer) {
+
+    $scope.t = MyTimer(1000);
+    console.log('time',$scope.t);
 
     $scope.misc = {};
     $scope.data = {
@@ -60,7 +74,9 @@ app.controller('myCtrl', function($scope) {
       return Math.floor((Math.random() * 10));
     }
 
-    $scope.chooseAnswer = function(){
+    $scope.chooseAnswer = function(answeruser){
+      //console.log('answeruser:',$scope.data.answeruser);
+      $scope.data.answeruser = answeruser;
       console.log('answeruser:',$scope.data.answeruser);
       console.log('valueAnswer:',$scope.data.operation.valueAnswer);
 

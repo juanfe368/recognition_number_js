@@ -259,7 +259,7 @@ function startGame() {
     respuetsasIncorrectas = 0;
     numIntentos = 2;
 
-    var pathocr = './ocrad.js-master/ocrad.js';
+    var pathocr = '../ocrad.js-master/ocrad.js';
     include(pathocr);
     carga();
     loadOperacion();
