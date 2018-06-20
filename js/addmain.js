@@ -22,9 +22,6 @@ app.factory('MyTimer', function($interval){
 
 app.controller('myCtrl', function($scope, MyTimer) {
 
-    $scope.t = MyTimer(1000);
-    console.log('time',$scope.t);
-
     $scope.misc = {};
     $scope.data = {
       answeruser: "",
@@ -98,6 +95,11 @@ app.controller('myCtrl', function($scope, MyTimer) {
         $scope.data.answeruser = "";
         $scope.initialDataOperation();
       }
+    }
+
+    $scope.startGame = function(){
+      $scope.t = MyTimer(1000);
+      console.log('time',$scope.t.counts);
     }
 
     $scope.initialDataOperation();
