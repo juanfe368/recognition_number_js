@@ -89,11 +89,12 @@
                     <!--<h1 ng-repeat="x in data.operation">{{x}}</h1>-->
                     <!--<div ng-repeat="(key, value) in data.operation" class="panel col-lg-12" ng-model="data.operation">-->
                     <div class="panel col-lg-12">
-                      <div class="col-lg-6">
-                        <span class="glyphicon glyphicon-time btnImage"></span>
-                      </div>
-                      <div class="col-lg-6">
-                        {{t.counts}}
+                      <div class="col-lg-12 text-center">
+                        <!--<h3>{{t.counts}}</h3>-->
+                        <h3 class="text-warning">{{timeGame.counts}}</h3>
+                        <!--<button type="button" class="btn btn-warning btn-lg">
+                          <h5>{{timeGame.counts}}</h5>
+                        </button>-->
                       </div>
                     </div>
                     <div class="panel col-lg-12">
@@ -107,8 +108,8 @@
                         <input type="text" name="" value="{{data.valueFinal}}" class="form-control input-lg text-center">
                       </div>
                     </div>
-
                     <div class="col-lg-12 text-center">
+                      <!--<div class="col-lg-3" ng-repeat="(key, value) in data.answers track by $index">-->
                       <div class="col-lg-3" ng-repeat="(key, value) in data.answers">
                         <!--<label class="containerlabel"> {{value}}
                             <input type="radio" name="optradio" ng-click="chooseAnswer()" ng-model="data.answeruser" value="{{value}}">
@@ -118,17 +119,36 @@
                         <!--<button type="button" class="btn btn-success btn-lg" ng-click="chooseAnswer({{value}})">{{value}}</button>-->
                       </div>
                     </div>
-                    </br>
+                  </div>
+                  <div class="panel panel-body">
                     <div class="col-lg-12 text-center">
                       <button id="butStart" ng-click="startGame();" class="btn btn-primary btn-lg">
                         <span class="glyphicon glyphicon-play"></span>
                       </button>
                     </div>
-
                   </div>
                 </div>
               </div>
             </div>
+
+            <div class="modal fade" id="myModalResults" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Puntaje</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p id="paragraphResults"></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="iframeShareFace">
                 <iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fwww.gamethemed.com%2F&layout=button&size=large&mobile_iframe=true&width=99&height=28&appId" width="99" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
                     allowTransparency="true" allow="encrypted-media"></iframe>
@@ -149,6 +169,7 @@
 
 <script src="../js/jquery-1.12.0.min.js"></script>
 <script src="../js/angular.min.js"></script>
+<script src="../startbootstrap/js/bootstrap.min.js"></script>
 <script src="../js/addmain.js"></script>
 <script src="../js/main.js"></script>
 

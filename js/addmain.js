@@ -10,11 +10,11 @@ var app = angular.module("myApp", []);
 });*/
 app.factory('MyTimer', function($interval){
     return function(delay){
-        var initialMs= (new Date()).getTime();
-        var result = {totalMilliseconds:0, counts:0};
+        var initialMs = (new Date()).getTime();
+        var result = {totalMilliseconds:0, counts:60};
         $interval(function() {
             result.totalMilliseconds = (new Date()).getTime() - initialMs;
-            result.counts++;
+            result.counts--;
         }, delay);
         return result;
     };
@@ -27,7 +27,15 @@ app.controller('myCtrl', function($scope, MyTimer) {
       answeruser: "",
       turnuser: 0,
       answercorrect: 0,
-      answerinccorect: 0
+      answerinccorect: 0,
+      endGame: false,
+      valueInitial: 0,
+      valueFinal: 0,
+      answers: [1,2,3,4]
+    };
+
+    $scope.timeGame = {
+      counts: 60
     };
 
     $scope.initialDataOperation = function(){
@@ -42,7 +50,6 @@ app.controller('myCtrl', function($scope, MyTimer) {
       $scope.data.operation = [];
       $scope.data.operation = {valorInital:$scope.data.valueInitial, valorFinal:$scope.data.valueFinal, valueAnswer:$scope.data.answeroperation};
 
-      $scope.data.answers = new Array();
       $scope.data.posAnswer = Math.floor((Math.random() * 4));
       $scope.data.answers[$scope.data.posAnswer] = $scope.data.operation.valueAnswer;
       var countPos = 0;
@@ -55,7 +62,8 @@ app.controller('myCtrl', function($scope, MyTimer) {
           valueAnswer: valueAux1 + valueAux2
         };
         if($scope.data.answers.indexOf($scope.misc.valuesAux.valueAnswer)<0){
-          if($scope.data.answers[countPos]==null||$scope.data.answers[countPos]==""){
+          /*if($scope.data.answers[countPos]==null||$scope.data.answers[countPos]==""){*/
+          if($scope.data.answers[countPos]!=$scope.data.operation.valueAnswer){
             $scope.data.answers[countPos] = $scope.misc.valuesAux.valueAnswer;
             countPos++;
           }
@@ -65,6 +73,7 @@ app.controller('myCtrl', function($scope, MyTimer) {
         }
         //countPos++;
       }
+      console.log($scope.data.answers);
     }
 
     $scope.valueRandom = function(){
@@ -85,7 +94,11 @@ app.controller('myCtrl', function($scope, MyTimer) {
         $scope.data.answerinccorect++;
         console.log('La respuesta es incorrecta:',$scope.data.answeruser);
       }
-      $scope.data.turnuser++;
+      if(!$scope.data.endGame){
+        $scope.data.answeruser = "";
+        $scope.initialDataOperation();
+      }
+      /*$scope.data.turnuser++;
       if($scope.data.turnuser==4){
         console.log('Respuestas Correctas: ',$scope.data.answercorrect);
         console.log('Respuestas incorrectas: ',$scope.data.answerinccorect);
@@ -94,13 +107,34 @@ app.controller('myCtrl', function($scope, MyTimer) {
       else{
         $scope.data.answeruser = "";
         $scope.initialDataOperation();
-      }
+      }*/
     }
 
     $scope.startGame = function(){
-      $scope.t = MyTimer(1000);
-      console.log('time',$scope.t.counts);
+      $scope.timeGame = MyTimer(1000);
+      $scope.initialDataOperation();
+      console.log('time',$scope.timeGame.counts);
     }
 
-    $scope.initialDataOperation();
+    $scope.$watch('timeGame.counts',function(newValue, oldValue){
+      if(newValue<=55 && !$scope.data.endGame){
+        $scope.timeGame.counts = 0;
+        $scope.data.endGame = true;
+        $scope.showResults();
+        return;
+        //alert('Fin del juego');
+      }
+      else if($scope.data.endGame){
+
+      }
+    });
+
+    $scope.showResults = function(){
+      //angular.element(document.getElementById("myModalResults")).modal('show');
+      $('#myModalResults').modal('show');
+      var textoResult = document.getElementById("paragraphResults");
+      textoResult.innerHTML = "Respuestas correctas: " + $scope.data.answercorrect + ".<br> Repuestas incorrectas: " + $scope.data.answerinccorect + ".<br>" + "Excelente trabajo sigue así y mejora tu puntaje";
+    }
+
+    //$scope.initialDataOperation();
 });
