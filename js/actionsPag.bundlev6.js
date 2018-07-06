@@ -85,6 +85,78 @@ c.onmousemove = function(e) {
     }
 }
 
+c.touchstart = function(e){
+  mousePos = getTouchPos(c, e);
+  var touch = e.touches[0];
+  var mouseEvent = new MouseEvent("mousedown", {
+    clientX: touch.clientX,
+    clientY: touch.clientY
+  });
+  canvas.dispatchEvent(mouseEvent);
+}
+
+/*c.touchend = function (e) {
+  console.log('Entro al touchend');
+  var mouseEvent = new MouseEvent("mouseup", {});
+  canvas.dispatchEvent(mouseEvent);
+}
+
+c.touchmove = function (e) {
+  console.log('Entro al touchmove');
+  var touch = e.touches[0];
+  var mouseEvent = new MouseEvent("mousemove", {
+    clientX: touch.clientX,
+    clientY: touch.clientY
+  });
+  c.dispatchEvent(mouseEvent);
+}*/
+
+c.addEventListener("touchstart", function (e) {
+        mousePos = getTouchPos(c, e);
+  var touch = e.touches[0];
+  var mouseEvent = new MouseEvent("mousedown", {
+    clientX: touch.clientX,
+    clientY: touch.clientY
+  });
+  c.dispatchEvent(mouseEvent);
+}, false);
+c.addEventListener("touchend", function (e) {
+  var mouseEvent = new MouseEvent("mouseup", {});
+  c.dispatchEvent(mouseEvent);
+}, false);
+c.addEventListener("touchmove", function (e) {
+  var touch = e.touches[0];
+  var mouseEvent = new MouseEvent("mousemove", {
+    clientX: touch.clientX,
+    clientY: touch.clientY
+  });
+  c.dispatchEvent(mouseEvent);
+}, false);
+
+function getTouchPos(canvasDom, touchEvent) {
+  var rect = canvasDom.getBoundingClientRect();
+  return {
+    x: touchEvent.touches[0].clientX - rect.left,
+    y: touchEvent.touches[0].clientY - rect.top
+  };
+}
+
+document.body.addEventListener("touchstart", function (e) {
+  if (e.target == c) {
+    e.preventDefault();
+  }
+}, false);
+document.body.addEventListener("touchend", function (e) {
+  if (e.target == c) {
+    e.preventDefault();
+  }
+}, false);
+document.body.addEventListener("touchmove", function (e) {
+  if (e.target == c) {
+    e.preventDefault();
+  }
+}, false);
+
 document.body.ondragover = function() { document.body.className = 'dragging'; return false }
 document.body.ondragend = function() { document.body.className = ''; return false }
 document.body.onclick = function() { document.body.className = ''; }
