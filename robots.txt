@@ -1,2 +1,3 @@
 User-Agent: *
+Disallow: /google200f712a88652f64.html
 Sitemap: https://www.gamethemed.com/sitemap.xml
