@@ -6,20 +6,17 @@
     <meta http-equiv="Content-Language" content="ES-ES">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Juego de matemáticas para niños. Aprende a sumar, restar y a dibujar los números">
-    <meta name="keywords" content="juegos de matematicas para niños, juegos de matematicas para primaria, juegos para aprender los numeros, juegos para enseñar matematicas en preescolar, juegos para enseñar matematicas a niños de primaria, juegos infantiles de matematicas, juegos divertidos de matematicas para niños de primaria, juegos de matematicas para 5 grado, juegos de sumas y restas para niños, juegos matematicos de suma y resta para niños, juegos de matematicas de sumar y restar, juegos interactivos de matematicas, juegos faciles de matematicas, juegos gratis de matematicas para niños, math kids, math for kids, math games for kids">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Juegos educativos para niños">
     <meta name="author" content="Gamethemed">
     <meta name="owner" content="Juan Arias">
     <title>Juego de matemáticas para niños</title>
-    <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
-    <link href="startbootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <!--<link href="css/freelancer.css" rel="stylesheet">-->
-    <link href="startbootstrap/css/freelancer.css" rel="stylesheet">
-
-    <link rel="stylesheet" type="text/css" href="css/pagStyle.min.v2.css">
     <link rel="icon" type="image/png" href="./favicon.ico">
+    <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+    <link href="css/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/general_style.css" rel="stylesheet">
+    <!-- Para los icons -->
+    <!--<link rel="stylesheet" href="css/fontawesome-free/css/fontawesome.min.css">-->
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116925262-1"></script>
@@ -42,219 +39,85 @@
         enable_page_level_ads: true
       });
     </script>-->
-
-
 </head>
 
-<body onload="cargarFX();">
+<body>
 
-    <div id="pageone" class="container-fluid paige_complete">
-        <div class="navbar navbar-default divHeader">
-            <!--<h1 class="titleText">Math Kids</h1>-->
-            <h1 class="titleText">Juegos de matemáticas para niños</h1>
+    <div id="main-container" class="container">
+        <div id="header-page" class="page-header row text-center bg-warning text-white p-3">
+            <div class="col-sm-12 col-md-6 col-lg-11 col-xl-11">
+                <h1>
+                    JUEGOS EDUCATIVOS
+                </h1>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-1 col-xl-1">
+                <img src="img/juegos-educativos.jpg" alt="Educate y aprende">
+            </div>
         </div>
-        <div>
-            <div id="demo" class="container-fluid divImg">
-                <div class="output">
-                    <div id="output">
-                        <div id="text"></div>
-                        <span id="timing"></span>
-                    </div>
-                </div>
-                <div class="rows">
-                    <div class="panel col-lg-12 text-center panel-not-bg">
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <div class="panel-body">
-                            <!--<a href="#divJuego" class="btn btn-success">
-                                  <span class="glyphicon glyphicon-play btnImage"></span>
-                                </a>-->
-                            <button id="butPlay" class="btn btn-success" onclick="playAction();">
-                                    <span class="glyphicon glyphicon-play btnImage"></span>
-                                </button>
-                        </div>
-                    </div>
-                </div>
+        <div class="row bg-light p-5">
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center pt-5">
+                <article>
+                    <h2>Diviertete y aprende con nuestros juegos educativos</h2>
+                    <p>
+                        Sabemos que la educación esta cambiando por eso queremos dar herramientas que faciliten el
+                        <strong>aprendizaje</strong>.
+                    </p>
+                    <p>
+                        Creamos
+                        <strong>juegos didacticos</strong> con la intención de que aprender y enseñar sea más facil y divertido
+                    </p>
+                </article>
             </div>
-
-            <div class="row divPlay">
-                <div class="col-lg-6 col-lg-offset-3">
-                    <div class="panel panel-primary panelMain">
-                        <div id="divJuego" class="panel-heading text-center">
-                            <h4>Oprime empezar y dibuja los números de los resultados de las operaciones</h4>
-                        </div>
-                        <div class="panel-body">
-                            <span id="segundos" class="form-control text-center" style="font-size: 20px">0 Segundos</span>
-                        </div>
-                        <div class="panel-body text-center">
-                            <div class="row">
-                                <input type="text" id="inputField1" name="inputField1" class="col-lg-4 text-center fieldOperation" readonly>
-                                <input type="text" id="operaField" name="operaField" class="col-lg-4 text-center fieldOperation" readonly>
-                                <input type="text" id="inputField2" name="inputField2" class="col-lg-4 text-center fieldOperation" readonly>
-                                <input type="hidden" id="inputFieldRespuest" name="inputFieldRespuest">
-                            </div>
-                            <div id="divRespuest" class="text-center">
-                                <div id="divRespuestCorrect" class="alert alert-success" style="display:none;">
-                                    <strong>Correcto!</strong> Sigue así.
-                                </div>
-                                <div id="divRespuestInCorrect" class="alert alert-danger" style="display:none;">
-                                    <strong>Que mal fallaste esta pregunta intenta la proxima!</strong>
-                                </div>
-                                <div id="divAlert" class="alert alert-info" style="display:none;">
-                                    <strong>No es correcto!</strong> Intentalo nuevamente.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="panel-body text-center">
-                            <canvas id='c' width="400" height="200"></canvas>
-                        </div>
-                        <div class="panel-body text-center">
-                            <button id="clear" onclick="clearFrame()" class="btn btn-warning btn-lg">
-                              <span class="glyphicon glyphicon-erase"></span>
-                            </button>
-                            <!--<button id="clear" onclick="reset_canvas()" class="btn btn-success btn-lg">Limpiar</button>-->
-                            <!--<button id="word" onclick="clearFrame();" class="btn btn-success btn-lg">Refrescar</button>-->
-                            <button id="butProcess" onclick="recognize_image();" class="btn btn-success btn-lg" disabled>
-                              <span class="glyphicon glyphicon-ok"></span>
-                            </button>
-                            <button id="butStart" onclick="startGame();" class="btn btn-primary btn-lg">
-                              <span class="glyphicon glyphicon-play"></span>
-                            </button>
-                            <!--<button id="butInstruction" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">
-                              <span class="glyphicon glyphicon-question-sign"></span>
-                            </button>-->
-                            <button id="butAyuda" name="butAyuda" class="btn btn-info btn-lg" data-toggle="modal" data-target="#help">
-                              <span class="glyphicon glyphicon-pencil"></span>
-                            </button>
-                        </div>
-                        <div class="panel-body text-center">
-                            <input type="text" id="transcription" readonly class="form-control">
-                        </div>
-                        <!--<div class="panel-body text-center">
-                            <button id="butAyuda" name="butAyuda" class="btn btn-info btn-lg" data-toggle="modal" data-target="#help">
-                              <span class="glyphicon glyphicon-pencil"></span>
-                            </button>
-                        </div>-->
-                    </div>
-                </div>
-            </div>
-
-            <!-- Article -->
-            <div class="row" style="display:none">
-              <article class="col-lg-6 col-lg-offset-3">
-                <h2 class="text-center">Gamethemed</h2>
-                <p>
-                  En <b>Gamethemed</b> estamos convencidos de que la educación esta cambiando, y queremos hacer nuestro
-                  aporte creando un contenido para que los niños puedan aprender a <strong>sumar</strong>,
-                  <strong>restar</strong> y <strong>dibujar los números</strong> divirtiendose y <b>jugando</b>.
-                </p>
-              </article>
-            </div>
-
-            <div class="iframeShareFace">
-                <iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fwww.gamethemed.com%2F&layout=button&size=large&mobile_iframe=true&width=99&height=28&appId" width="99" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
-                    allowTransparency="true" allow="encrypted-media"></iframe>
-            </div>
-
-            <!-- Frame oculto instrucciones -->
-            <div class="modal fade" id="myModal" role="dialog">
-                <div class="modal-dialog">
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">¿Como jugar?</h4>
-                        </div>
-                        <div class="modal-body">
-                            <p>Hola y bienvenido a Math Kids, un juego donde podras aprender a sumar, restar y escribir los números.</p>
-                            <p>1) Para comenzar oprime el botón de empezar</p>
-                            <p>2) Tendras 60 segundos para resolver 10 preguntas de suma y resta de números</p>
-                            <p>3) Para poder escribir la respuesta usa la parte blanca que esta debajo de la pregunta</p>
-                            <p>4) Identifica que tipo de operación es suma o resta y escribe la respuesta correcta</p>
-                            <p>5) Juega varias veces para ir mejorando tu puntaje y veras como poco a poco mejoraras</p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Hasta aqui el frame de las instrucciones -->
-
-            <!-- Frame oculto instrucciones -->
-            <div class="modal fade" id="myModalResults" role="dialog">
-                <div class="modal-dialog">
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Puntaje</h4>
-                        </div>
-                        <div class="modal-body">
-                            <p id="paragraphResults"></p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Hasta aqui el frame de las instrucciones -->
-
-            <!-- Frame Help -->
-            <div class="modal fade" id="help" role="dialog">
-                <div class="modal-dialog">
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Números para dibujar</h4>
-                        </div>
-                        <div class="modal-body">
-                            <img src="img/numbersInstruc.png" alt="Instrucciones de juego" longdesc="Las instrucciones de juego para que los niños sepan como deben dibujar los números de los resultados de la suma" style="width: 100%;">
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Fin Frame Help -->
-
-            <!--<div><img src="" id="laimagen"/></div>-->
+            <!--<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">
+                <button class="btn btn-warning btn-lg text-white">
+                    Play
+                </button>
+            </div>-->
+            <button class="col-sm-12 col-md-4 offset-md-4 text-center btn btn-warning btn-lg text-white">
+                Play
+            </button>
         </div>
-
-        <h2 style="display: none">Juegos de matemáticas para niños de primaria</h2>
-        <h2 style="display: none">Juegos de matemáticas para niños pequeños</h2>
-
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 pr-5 pl-5 pb-5">
+                <div class="row">
+                    <div id="title-game" class="col-sm-12 text-light text-center p-4 rounded">
+                        <h3>Juego para aprender a escribir los números</h3>
+                    </div>
+                    <div class="col-sm-12 col-md-4 offset-md-4 p-5">
+                        <img src="img/dibujar-numeros.jpg" class="img-fluid img-rounded" alt="Dibujar numeros">
+                    </div>
+                    <div class="col-sm-12 col-md-4 offset-md-4 text-center">
+                        <h4>
+                            Escribe los números siguiendo las intrucciones
+                        </h4>
+                    </div>
+                    <!--<div class="col-sm-12 col-md-4 offset-md-4 text-center">
+                        <button class="btn btn-primary">
+                            Jugar
+                        </button>
+                    </div>-->
+                    <a href="views/ocrmath.html" class="col-sm-12 col-md-4 offset-md-4 btn btn-primary btn-lg text-center text-white" target="_blanck">
+                        Jugar
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <footer>
+            <div class="row bg-dark text-center text-white p-4">
+                <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                    <p class="lead">
+                        © Diseñado por
+                        <a href="http://www.gamethemed.com/">Gamethemed</a> - Derechos reservados 2018
+                    </p>
+                </div>
+            </div>
+        </footer>
     </div>
-    <script src="js/actionsPag.bundlev6.js"></script>
-    <!--<script src="js/dist/numberjs.0d920207d378f766c7da.bundle.js"></script>-->
-    <script>
-        reset_canvas();
-    </script>
-    <!-- FOOTER PAG -->
-    <footer style="background-color: #F89018;">
-        <div class="container" style="background-color: #F89018;">
-            <div class="row panel" style="background-color: #F89018;">
-                <!--<p>© Diseñado por Juan Felipe Arias y Carolina Gonzalez - Derechos reservados 2016
-                    </p>-->
-                <p>© Diseñado por Gamethemed - Derechos reservados 2016
-                    <!--para <a href="http://asisjure.com/" target="_blank">ASISJURE.COM</a> - Derechos reservados
-                        <label class="nav navbar-nav navbar-right"></label>-->
-                </p>
-            </div>
-        </div>
-    </footer>
-    <!--<div class="fb-share-button" data-href="http://www.gamethemed.com/" data-layout="button" data-size="large" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.gamethemed.com%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartir</a></div>-->
-    <!-- HASTA AQUI EL FOOTER -->
+    <!--<script src="css/fontawesome-free/js/fontawesome.min.js"></script>-->
+    <script src="js/jquery-3.3.1.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="css/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
-
-<script src="js/jquery-1.12.0.min.js"></script>
-<script src="startbootstrap/js/bootstrap.min.js"></script>
-<script src="js/glfx.js"></script>
-<!--<script src="ocrad.js-master/ocrad.js"></script>-->
 
 </html>

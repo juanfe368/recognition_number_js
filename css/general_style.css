@@ -1,0 +1,14 @@
+#main-container {
+    /*background-color: antiquewhite;*/
+    font-family: sans-serif;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,.2);
+}
+
+#header-page{
+    /*background-color: #FF7400 !important;*/
+    background-color: #FF8300 !important;
+}
+
+#title-game{
+    background-color: #FF5D40 !important;
+}
