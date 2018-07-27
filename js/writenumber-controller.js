@@ -1,11 +1,12 @@
-var app = angular.module('writenumber',[]);
+var app = angular.module('writenumber', ['signature']);
 
-app.controller('writecontroller',function($scope){
+app.controller('writecontroller', function ($scope) {
+
     console.log('Entro al controlador');
 
-    $scope.numberwrite = function(){
-        console.log('Entro a la función');
-        
-    }
-    
+    $scope.boundingBox = {
+        width: 700,
+        height: 300
+    };
+
 });
