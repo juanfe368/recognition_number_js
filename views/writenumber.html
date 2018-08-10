@@ -21,6 +21,7 @@
     <!-- js -->
     <script src="../js/jquery-3.3.1.slim.min.js"></script>
 
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116925262-1"></script>
     <script>
@@ -57,32 +58,121 @@
         </div>
     </div>
 
-    <div class="container-fluid p-5" ng-app="writenumber">
+    <div class="container-fluid p-3" ng-app="writenumber">
         <div class="row text-center" ng-controller="writecontroller">
             <div class="col-md-12 text-center">
-                <img src="../img/numbersInstruc.png" alt="" class="img-fluid pb-4">
                 <h2>
                     Dibuja los números
                 </h2>
                 <p>
                     Observa los movimientos y dibuja los números antes de que se termine el tiempo
                 </p>
+                <img src="../img/numbersInstruc.png" alt="" class="img-fluid pb-1">
             </div>
-            <div class="container-canvas col-sm-12 col-md-12 text-center" ng-style="{'max-width': boundingBox.width + 'px', 'max-height': boundingBox.height + 'px'}">
-                <signature-pad accept="accept" clear="clear" height="220" width="568" dataurl="dataurl" class="bg-light"></signature-pad>
+
+            <div class="col-12">
+                <!--<span id="segundos" class="text-center display-5">0 Segundos</span>-->
+                <h4 id="segundos" class="text-center">10 Segundos</h4>
+            </div>
+
+            <div id="divRespuest" class="col-12 text-center pt-2">
+                <div id="divRespuestCorrect" class="alert alert-success" style="display:none;">
+                    <strong>Correcto!</strong> Sigue así.
+                </div>
+                <div id="divRespuestInCorrect" class="alert alert-danger" style="display:none;">
+                    <strong>Que mal fallaste esta pregunta intenta la proxima!</strong>
+                </div>
+                <div id="divAlert" class="alert alert-info text-center" style="display:none;">
+                    <strong>No es correcto!</strong> Intentalo nuevamente.
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="row">
+                    <input type="text" id="inputField1" name="inputField1" class="col-lg-12 text-center h3" readonly>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-12 col-lg-12 text-center container-canvas" ng-style="{'max-width': boundingBox.width + 'px', 'max-height': boundingBox.height + 'px'}">
+            <!--<signature-pad id="signature" accept="accept" clear="clear" height="220" width="568" dataurl="dataurl"></signature-pad>-->
+                <signature-pad id="signature" clear="clear" height="200" width="400"></signature-pad>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="card d-none d-md-block">
+                    <div class="card-body">
+                        <button id="butStart" class="btn btn-danger btn-lg" ng-click="startGame();">
+                            Empezar
+                        </button>
+                        <button id="butProcess" class="btn btn-primary btn-lg" ng-click="recognizeImage();">
+                            Responder
+                        </button>
+                        <button id="butClear" class="btn btn-info btn-lg" ng-click="clear()">
+                            Limpiar
+                        </button>
+                    </div>
+                </div>
+                <div class="card d-md-none">
+                    <div class="card-body">
+                        <button id="butStartSmall" class="btn btn-danger btn-block" ng-click="startGame();">
+                            Empezar
+                        </button>
+                        <button id="butProcess" class="btn btn-primary btn-block" ng-click="recognizeImage();">
+                            Responder
+                        </button>
+                        <button class="btn btn-info btn-block" ng-click="clear()">
+                            Limpiar
+                        </button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <input type="text" id="transcription" readonly>
+                    </div>
+                </div>
             </div>
         </div>
+
+        <!-- Frame oculto instrucciones -->
+        <div class="modal fade" id="myModalResults" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Puntaje</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p id="paragraphResults"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
-    <!-- Footer -->
-    <!-- js -->
-    <script src="../js/popper.min.js"></script>
-    <script src="../css/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="../js/signature-pad.min.js"></script>
-    <script src="../js/angular.min.js"></script>
-    <script src="../js/angular-signature.min.js"></script>
-    <script src="../js/writenumber-controller.js"></script>
-    <script src="../js/app.js"></script>
+    <footer class="bg-dark text-center text-white p-4">
+        <div class="container">
+            <p class="lead">
+                © Diseñado por
+                <a href="http://www.gamethemed.com/">Gamethemed</a> - Derechos reservados 2018
+            </p>
+            <p>
+                Contacto: admin@gamethemed.com
+            </p>
+        </div>
+    </footer>
 </body>
+
+<script src="../js/popper.min.js"></script>
+<script src="../css/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../js/angular.min.js"></script>
+<script src="../js/angular-signature.min.js"></script>
+<script src="../js/signature-pad.js"></script>
+<script src="../js/writenumber-controller.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/glfx.js"></script>
 
 </html>

@@ -7,16 +7,13 @@
  var numIntentos = 0;
 
 function recognize_image() {
-    //document.getElementById('transcription').innerText = "(Recognizing...)";
     document.getElementById('transcription').value = "(Reconociendo...)";
 
+    console.log(document.getElementById("c").getContext('2d'));
+
     OCRAD(document.getElementById("c"), {
-        //OCRAD(document.getElementById("laimagen"), {
-        //OCRAD(document.getElementById("canvasRespuest"), {
         numeric: true,
     }, function(text) {
-        //            document.getElementById('transcription').className = "done";
-        //document.getElementById('transcription').innerText = text;
         document.getElementById('transcription').value = text;
         this.getCalificacion(document.getElementById('transcription').value);
         reset_canvas();
@@ -53,7 +50,7 @@ c.onmousedown = function(e) {
 c.onmouseup = function(e) {
     drag = false;
     e.preventDefault();
-    runOCR();
+    //runOCR();
 }
 c.onmousemove = function(e) {
     e.preventDefault();
@@ -85,78 +82,6 @@ c.onmousemove = function(e) {
     }
 }
 
-c.touchstart = function(e){
-  mousePos = getTouchPos(c, e);
-  var touch = e.touches[0];
-  var mouseEvent = new MouseEvent("mousedown", {
-    clientX: touch.clientX,
-    clientY: touch.clientY
-  });
-  canvas.dispatchEvent(mouseEvent);
-}
-
-/*c.touchend = function (e) {
-  console.log('Entro al touchend');
-  var mouseEvent = new MouseEvent("mouseup", {});
-  canvas.dispatchEvent(mouseEvent);
-}
-
-c.touchmove = function (e) {
-  console.log('Entro al touchmove');
-  var touch = e.touches[0];
-  var mouseEvent = new MouseEvent("mousemove", {
-    clientX: touch.clientX,
-    clientY: touch.clientY
-  });
-  c.dispatchEvent(mouseEvent);
-}*/
-
-c.addEventListener("touchstart", function (e) {
-        mousePos = getTouchPos(c, e);
-  var touch = e.touches[0];
-  var mouseEvent = new MouseEvent("mousedown", {
-    clientX: touch.clientX,
-    clientY: touch.clientY
-  });
-  c.dispatchEvent(mouseEvent);
-}, false);
-c.addEventListener("touchend", function (e) {
-  var mouseEvent = new MouseEvent("mouseup", {});
-  c.dispatchEvent(mouseEvent);
-}, false);
-c.addEventListener("touchmove", function (e) {
-  var touch = e.touches[0];
-  var mouseEvent = new MouseEvent("mousemove", {
-    clientX: touch.clientX,
-    clientY: touch.clientY
-  });
-  c.dispatchEvent(mouseEvent);
-}, false);
-
-function getTouchPos(canvasDom, touchEvent) {
-  var rect = canvasDom.getBoundingClientRect();
-  return {
-    x: touchEvent.touches[0].clientX - rect.left,
-    y: touchEvent.touches[0].clientY - rect.top
-  };
-}
-
-document.body.addEventListener("touchstart", function (e) {
-  if (e.target == c) {
-    e.preventDefault();
-  }
-}, false);
-document.body.addEventListener("touchend", function (e) {
-  if (e.target == c) {
-    e.preventDefault();
-  }
-}, false);
-document.body.addEventListener("touchmove", function (e) {
-  if (e.target == c) {
-    e.preventDefault();
-  }
-}, false);
-
 document.body.ondragover = function() { document.body.className = 'dragging'; return false }
 document.body.ondragend = function() { document.body.className = ''; return false }
 document.body.onclick = function() { document.body.className = ''; }
@@ -171,25 +96,14 @@ var lastWorker;
 //var worker = new Worker('worker.js');
 
 function runOCR(image_data, raw_feed) {
-    document.getElementById("output").className = 'processing';
-    /*worker.onmessage = function(e) {
-
-        document.getElementById("output").className = '';
-
-        if ('innerText' in document.getElementById("text")) {
-            document.getElementById("text").innerText = e.data;
-        } else {
-            document.getElementById("text").textContent = e.data;
-        }
-        document.getElementById('timing').innerHTML = 'recognition took ' + ((Date.now() - start) / 1000).toFixed(2) + 's';
-    }*/
+    
+    //document.getElementById("output").className = 'processing';
     var start = Date.now();
     if (!raw_feed) {
         image_data = o.getImageData(0, 0, c.width, c.height);
+        console.log('image_data:',image_data);
+        
     }
-
-    //worker.postMessage(image_data);
-    //lastWorker = worker;
 }
 
 function clearFrame() {
@@ -202,6 +116,7 @@ function clearFrame() {
 
 function cargarFX() {
     try {
+        console.log('var fx:', fx);
         var canvas = fx.canvas();
         return canvas;
     } catch (e) {
