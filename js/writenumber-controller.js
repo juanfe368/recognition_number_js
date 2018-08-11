@@ -1,6 +1,6 @@
 var app = angular.module('writenumber', ['signature']);
 
-app.controller('writecontroller', function ($scope) {
+app.controller('writecontroller', function ($scope, $location, $anchorScroll) {
 
     $scope.chargerFx = function () {
         try {
@@ -18,9 +18,6 @@ app.controller('writecontroller', function ($scope) {
         contextCanvas: document.getElementById("signature").firstChild.getContext('2d')
     }
 
-    console.log('data:',$scope.data);
-    
-
     $scope.boundingBox = {
         width: 400,
         height: 200
@@ -30,7 +27,6 @@ app.controller('writecontroller', function ($scope) {
         intentosRespuestas: 0,
         cantidadPreguntas: 0,
         respuestasAcertadas: 0,
-        respuetsasIncorrectas: 0,
         numIntentos: 0,
         chargerOcrad: false,
         pathOcr: '../ocrad.js-master/ocrad.js',
@@ -49,9 +45,7 @@ app.controller('writecontroller', function ($scope) {
 
         $scope.include($scope.misc.pathOcr);
         $scope.carga();
-        //$scope.loadOperacion();
         $scope.generateDraw();
-        //hiddenRespuests();
         document.getElementById("butStart").disabled = true;
         document.getElementById("butStartSmall").disabled = true;
     }
@@ -61,7 +55,8 @@ app.controller('writecontroller', function ($scope) {
         j.type = "text/javascript";
         j.src = file_path;
         $scope.misc.chargerOcrad = true;
-        //document.getElementById("butProcess").disabled = false;
+        document.getElementById("butProcess").disabled = false;
+        document.getElementById("butProcessSmall").disabled = false;
         document.body.appendChild(j);
     }
 
@@ -89,6 +84,7 @@ app.controller('writecontroller', function ($scope) {
         document.getElementById("butStart").disabled = false;
         document.getElementById("butStartSmall").disabled = false;
         document.getElementById("butProcess").disabled = true;
+        document.getElementById("butProcessSmall").disabled = true;
         $scope.hiddenRespuests();
         $scope.showResults();
         clearInterval(cronometro);
@@ -106,7 +102,7 @@ app.controller('writecontroller', function ($scope) {
     }
 
     $scope.loadOperacion = function () {
-        numIntentos = 2;
+        $scope.misc.numIntentos = 2;
         var valorAleatorio1 = Math.round(Math.random() * 10);
         var valorAleatorio2 = Math.round(Math.random() * 10);
 
@@ -115,22 +111,15 @@ app.controller('writecontroller', function ($scope) {
         }
 
         document.getElementById("inputField1").value = valorAleatorio1;
-        document.getElementById("inputField2").value = valorAleatorio2;
-        document.getElementById("operaField").value = $scope.getOperationRandom();
 
         var valor1 = document.getElementById("inputField1").value;
-        var valor2 = document.getElementById("inputField2").value;
-        var operation = document.getElementById("operaField").value;
-
-        document.getElementById("inputFieldRespuest").value = $scope.getRespuest(operation, valor1, valor2);
     }
 
     $scope.generateDraw = function () {
-        numIntentos = 2;
+        $scope.misc.numIntentos = 2;
         var valorAleatorio = Math.round(Math.random() * 10);
         document.getElementById("inputField1").value = valorAleatorio;
         var valor1 = document.getElementById("inputField1").value;
-        //document.getElementById("inputFieldRespuest").value = valor1;
     }
 
     $scope.getRespuest = function (operation, valor1, valor2) {
@@ -170,7 +159,7 @@ app.controller('writecontroller', function ($scope) {
             document.getElementById("divRespuestInCorrect").style.display = 'none';
             document.getElementById("divRespuestCorrect").style.display = 'initial';
             $scope.misc.respuestasAcertadas++;
-        } else if (valorRespuestCorrect != numRespuesUser.trim() && numIntentos != 0) {
+        } else if (valorRespuestCorrect != numRespuesUser.trim() && $scope.misc.numIntentos != 0) {
             document.getElementById("divAlert").style.display = 'initial';
             document.getElementById("divRespuestInCorrect").style.display = 'none';
             document.getElementById("divRespuestCorrect").style.display = 'none';
@@ -184,10 +173,10 @@ app.controller('writecontroller', function ($scope) {
             $scope.misc.respuetsasIncorrectas++;
         }
 
-        $scope.misc.cantidadPreguntas--;
+        /*$scope.misc.cantidadPreguntas--;
         if ($scope.misc.cantidadPreguntas == 0) {
             $scope.endGame();
-        }
+        }*/
 
         $scope.loadOperacion();
     }
@@ -212,13 +201,9 @@ app.controller('writecontroller', function ($scope) {
         var canv = cargarFX();
         canv.id = "canvasRespuest";
         canv.name = "canvasRespuest";
-        // convert the image to a texture
         var texture = canv.texture(image);
-        // apply the ink filter
 
         canv.draw(texture).edgeWork(10).update();
-        //canv.draw(texture).noise(0.5).update();
-        //canv.draw(texture).dotScreen(320, 239.5, 1.1, 3).update();
         image.parentNode.insertBefore(canv, image);
         image.parentNode.removeChild(image);
     }
@@ -227,6 +212,18 @@ app.controller('writecontroller', function ($scope) {
         $scope.data.contextCanvas.fillStyle = 'white';
         $scope.data.contextCanvas.fillRect(0, 0, $scope.data.canvasDraw.width, $scope.data.canvasDraw.height);
         $scope.data.contextCanvas.fillStyle = 'black';
+    }
+
+    $scope.playAction = function () {
+        var heightDivOperation = document.getElementById("divRespuest").scrollHeight;
+        var heightPage = document.body.scrollHeight;
+        var totalPosition = heightPage - 920;
+    
+        window.scroll({
+            top: totalPosition,
+            left: 0,
+            behavior: 'smooth'
+        });
     }
 
     $scope.resetCanvas();
