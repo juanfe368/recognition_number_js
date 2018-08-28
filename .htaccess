@@ -9,3 +9,5 @@ RewriteRule ^(.*)$ https://www.gamethemed.com/$1 [R,L]
   AddType application/x-httpd-ea-php70 .php .php7 .phtml
 </IfModule>
 # php -- END cPanel-generated handler, do not edit
+# Error Server
+ErrorDocument 404 /views/notfound.html
