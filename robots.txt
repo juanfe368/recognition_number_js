@@ -1,2 +1,4 @@
 User-Agent: *
+Disallow: /views/ocrmath.html
+Disallow: /views/notfound.html
 Sitemap: https://www.gamethemed.com/sitemap.xml

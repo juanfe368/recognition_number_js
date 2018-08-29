@@ -72,3 +72,8 @@ typings/
 #package.json
 #webpack.config.js
 package-lock.json
+.htaccess
+ejemploWebhook.php
+error_log
+google200f712a88652f64.html
+.gitignore

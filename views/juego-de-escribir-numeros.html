@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta name="language" content="ES">
+    <meta http-equiv="Content-Language" content="es_CO">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Juego para aprender a escribir los números por medio de la tecnología">
+    <meta name="author" content="Gamethemed">
+    <meta name="owner" content="Juan Arias">
+    <link rel="canonical" href="https://www.gamethemed.com/views/juego-de-escribir-numeros.html" />
+    <title>Juego Educativos</title>
+    <link rel="icon" type="image/png" href="../favicon.ico">
+    <!-- Bootstrap Core CSS -->
+    <link href="../css/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/writenumer_style.css" rel="stylesheet">
+    <!-- Para los icons -->
+    <!--<link rel="stylesheet" href="css/fontawesome-free/css/fontawesome.min.css">-->
+
+    <!-- js -->
+    <script src="../js/jquery-3.3.1.slim.min.js"></script>
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116925262-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-116925262-1');
+    </script>
+
+    <!-- GoogleAdsense -->
+    <!--<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <script>
+                  (adsbygoogle = window.adsbygoogle || []).push({
+                    google_ad_client: "ca-pub-5776183249145309",
+                    enable_page_level_ads: true
+                  });
+                </script>-->
+</head>
+
+<body ng-app="writenumber">
+
+    <div class="container-fluid bg-primary text-white">
+        <div class="row text-center p-2">
+            <div class="col-sm-12 col-md-5 col-lg-5 col-xl-5 text-sm-center text-md-right text-lg-right">
+                <a href="https://www.gamethemed.com/">
+                    <img src="../img/juegos-educativos.jpg" width="40" height="40" alt="juegos educativos">
+                </a>
+            </div>
+            <div class="col-sm-12 col-md-7 col-lg-7 col-xl-7 text-sm-center text-md-left text-lg-left">
+                <h1>JUEGOS EDUCATIVOS</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid p-3" ng-app="writenumber">
+        <div class="row text-center" ng-controller="writecontroller">
+            <div class="col-md-12 text-center">
+                <h2>
+                    Dibuja los números
+                </h2>
+                <p>
+                    Observa los movimientos y dibuja los números antes de que se termine el tiempo
+                </p>
+                <img src="../img/numbersInstruc.png" alt="" class="img-fluid pb-1">
+                <p class="text-center d-none d-md-block">
+                    <button class="btn btn-info btn-lg" ng-click="playAction();">
+                        Play
+                    </button>
+                </p>
+                <p class="d-md-none">
+                    <button class="btn btn-info btn-block" ng-click="playAction();">
+                        Play
+                    </button>
+                </p>
+            </div>
+
+            <div class="col-12">
+                <h4 id="segundos" class="text-center">60 Segundos</h4>
+            </div>
+
+            <div id="divRespuest" class="col-12 text-center pt-2">
+                <div id="divRespuestCorrect" class="alert alert-success" style="display:none;">
+                    <strong>Correcto!</strong> Sigue así.
+                </div>
+                <div id="divRespuestInCorrect" class="alert alert-danger" style="display:none;">
+                    <strong>Que mal fallaste esta pregunta intenta la proxima!</strong>
+                </div>
+                <div id="divAlert" class="alert alert-info text-center" style="display:none;">
+                    <strong>No es correcto!</strong> Intentalo nuevamente.
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="row">
+                    <input type="text" id="inputField1" name="inputField1" class="col-lg-12 text-center h3" readonly>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-12 col-lg-12 text-center container-canvas border border-warning" ng-style="{'max-width': boundingBox.width + 'px', 'max-height': boundingBox.height + 'px'}">
+                <!--<signature-pad id="signature" accept="accept" clear="clear" height="220" width="568" dataurl="dataurl"></signature-pad>-->
+                <signature-pad id="signature" clear="clear" height="200" width="400"></signature-pad>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="card d-none d-md-block">
+                    <div class="card-body">
+                        <button id="butStart" class="btn btn-danger btn-lg" ng-click="startGame();">
+                            Empezar
+                        </button>
+                        <button id="butProcess" class="btn btn-primary btn-lg" ng-click="recognizeImage();" disabled>
+                            Responder
+                        </button>
+                        <button id="butClear" class="btn btn-info btn-lg" ng-click="clear()">
+                            Limpiar
+                        </button>
+                    </div>
+                </div>
+                <div class="card d-md-none">
+                    <div class="card-body">
+                        <button id="butStartSmall" class="btn btn-danger btn-block" ng-click="startGame();">
+                            Empezar
+                        </button>
+                        <button id="butProcessSmall" class="btn btn-primary btn-block" ng-click="recognizeImage();">
+                            Responder
+                        </button>
+                        <button class="btn btn-info btn-block" ng-click="clear()">
+                            Limpiar
+                        </button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <input type="text" class="text-center" id="transcription" readonly>
+                    </div>
+                </div>
+                <div class="row pt-2">
+                    <div class="col-12 text-center d-none d-md-block">
+                        <a href="../" class="btn btn-primary btn-lg">Volver</a>
+                    </div>
+                    <div class="col-12 text-center d-md-none">
+                        <a href="../" class="btn btn-primary btn-block">Volver</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="myModalResults" tabindex="-1" role="dialog" aria-labelledby="Resultados" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Puntaje</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p id="paragraphResults"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="bg-dark text-center text-white p-3">
+        <div class="row bg-dark text-center text-white p-3">
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                <p class="lead">
+                    © Diseñado por
+                    <a href="http://www.gamethemed.com/">Gamethemed</a> - Derechos reservados 2018
+                </p>
+                <p>
+                    Contacto: admin@gamethemed.com
+                </p>
+                <p>
+                    <iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fwww.gamethemed.com%2F&layout=button&size=large&mobile_iframe=true&width=73&height=28&appId"
+                        width="73" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"
+                        allow="encrypted-media"></iframe>
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+<script src="../js/popper.min.js"></script>
+<script src="../css/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../js/angular.min.js"></script>
+<script src="../js/angular-signature.min.js"></script>
+<script src="../js/signature-pad.js"></script>
+<script src="../js/writenumber-controller.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/glfx.js"></script>
+
+</html>
