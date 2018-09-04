@@ -217,7 +217,19 @@ app.controller('writecontroller', function ($scope, $location, $anchorScroll) {
     $scope.playAction = function () {
         var heightDivOperation = document.getElementById("divRespuest").scrollHeight;
         var heightPage = document.body.scrollHeight;
-        var totalPosition = heightPage - 920;
+        var totalPosition = heightPage - 2920;
+    
+        window.scroll({
+            top: totalPosition,
+            left: 0,
+            behavior: 'smooth'
+        });
+    }
+
+    $scope.playActionMovil = function () {
+        var heightDivOperation = document.getElementById("divRespuest").scrollHeight;
+        var heightPage = document.body.scrollHeight;
+        var totalPosition = heightPage - 4930;
     
         window.scroll({
             top: totalPosition,
