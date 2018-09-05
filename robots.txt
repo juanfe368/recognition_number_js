@@ -1,4 +1,5 @@
 User-Agent: *
 Disallow: /views/ocrmath.html
 Disallow: /views/notfound.html
+Disallow: /views/politics-cookies.html
 Sitemap: https://www.gamethemed.com/sitemap.xml
