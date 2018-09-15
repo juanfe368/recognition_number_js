@@ -19,10 +19,6 @@
     <!-- Para los icons -->
     <!--<link rel="stylesheet" href="css/fontawesome-free/css/fontawesome.min.css">-->
 
-    <!-- js -->
-    <script src="../js/jquery-3.3.1.slim.min.js"></script>
-
-
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116925262-1"></script>
     <script>
@@ -64,9 +60,9 @@
     <div class="container-fluid p-3" ng-app="writenumber">
         <div class="row text-center" ng-controller="writecontroller">
             <div class="col-md-12 text-center">
-                <h2>
+                <span class="h2">
                     ¿Como dibujar los números?
-                </h2>
+                </span>
                 <p>
                     Dibuja los números deacuerdo a las intrucciones mostradas abajo.
                 </p>
@@ -77,13 +73,13 @@
                     </button>
                 </p>
                 <p class="d-md-none">
-                    <button class="btn btn-info btn-block" ng-click="playActionMovil();">
+                    <button class="btn btn-info btn-block" ng-click="playAction();">
                         Play
                     </button>
                 </p>
             </div>
 
-            <div class="col-12">
+            <div id="sectionGames" class="col-12">
                 <h4 id="segundos" class="text-center">60 Segundos</h4>
             </div>
 
@@ -153,98 +149,294 @@
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
                         <p>
-                            Los números son símbolos, que permiten al ser humano representar una cantidad; estos son usados en muchas actividades de
-                            la vida diaria que realizamos, no solamente por la ciencia o la gente matemática, todos y cada
-                            uno de nosotros ha usado los números en algún momento, casi que de manera natural, como lo vemos
-                            en los niños pequeños que sin saberlo usan sus dedos para contar. Algunos aseguran que el concepto
-                            de los números puede ser tan universal que podrían usarse para comunicarse con otra especie de
-                            otro planeta, ya si son tan desarrollados como nosotros, en algún momento habrán desarrollado
+                            Los números son símbolos, que permiten al ser humano representar una cantidad; estos son
+                            usados en muchas actividades de
+                            la vida diaria que realizamos, no solamente por la ciencia o la gente matemática, todos y
+                            cada
+                            uno de nosotros ha usado los números en algún momento, casi que de manera natural, como lo
+                            vemos
+                            en los niños pequeños que sin saberlo usan sus dedos para contar. Algunos aseguran que el
+                            concepto
+                            de los números puede ser tan universal que podrían usarse para comunicarse con otra especie
+                            de
+                            otro planeta, ya si son tan desarrollados como nosotros, en algún momento habrán
+                            desarrollado
                             el concepto de los números.
                         </p>
                     </li>
                     <li class="list-group-item">
                         <p>
-                            Desde épocas antiguas el hombre siempre tuvo la enorme necesidad de expresar o decir los números. Por ejemplo en la antigüedad
-                            cuando el hombre primitivo cazaba, este debía decir a los demás la cantidad de posibles presas
-                            que tenían, cantidades de flechas, rocas o algún tipo de arma para esas presas. Esto creó la
-                            necesidad del ser humano de contar y con eso la necesidad de representar esas cuentas que se
+                            Desde épocas antiguas el hombre siempre tuvo la enorme necesidad de expresar o decir los
+                            números. Por ejemplo en la antigüedad
+                            cuando el hombre primitivo cazaba, este debía decir a los demás la cantidad de posibles
+                            presas
+                            que tenían, cantidades de flechas, rocas o algún tipo de arma para esas presas. Esto creó
+                            la
+                            necesidad del ser humano de contar y con eso la necesidad de representar esas cuentas que
+                            se
                             realizaban.
                         </p>
                     </li>
                     <li class="list-group-item">
                         <p>
-                            Con el paso del tiempo y ya pasando a la época de los primeros asentamientos humanos, aparecieron las propiedades y el comercio;
-                            por ejemplo ya una persona podía poseer muchos animales, alimentos o productos que podía cambiar
-                            por otros. De esta forma surgen los primeros comerciantes y la actividad del comercio. Con lo
-                            anterior ya no solo era necesario representar las cantidades sino también que todos las pudieran
+                            Con el paso del tiempo y ya pasando a la época de los primeros asentamientos humanos,
+                            aparecieron las propiedades y el comercio;
+                            por ejemplo ya una persona podía poseer muchos animales, alimentos o productos que podía
+                            cambiar
+                            por otros. De esta forma surgen los primeros comerciantes y la actividad del comercio. Con
+                            lo
+                            anterior ya no solo era necesario representar las cantidades sino también que todos las
+                            pudieran
                             representar e interpretar esas cantidades de la misma forma.
                         </p>
                     </li>
                     <li class="list-group-item">
                         <p>
-                            Con lo anterior podemos darnos cuenta que el ser humano siempre ha tenido la necesidad de los números, la necesidad de contar
-                            y es que la historia de la humanidad está relacionada ellos. Nuestro sistema actual de numeración
-                            y la forma en la que escribimos los números fue en realidad un proceso largo, donde intervinieron
-                            varias civilizaciones, culturas usando las cruzadas, y el comercio entre ellas como medio para
+                            A lo largo del tiempo, la aparición de nuevas culturas y pueblos en el mundo, ha causado
+                            una modificación en la forma de escribir los números, por tanto es importante recordar
+                            cuáles de dichos pueblos o culturas fueron determinantes en el proceso de creación de los
+                            números que actualmente conocemos.
+                        </p>
+                    </li>
+                    <li class="list-group-item">
+                        <p>
+                            Con lo anterior podemos darnos cuenta que el ser humano siempre ha tenido la necesidad de
+                            los números, la necesidad de contar
+                            y es que la historia de la humanidad está relacionada ellos. Nuestro sistema actual de
+                            numeración
+                            y la forma en la que escribimos los números fue en realidad un proceso largo, donde
+                            intervinieron
+                            varias civilizaciones, culturas usando las cruzadas, y el comercio entre ellas como medio
+                            para
                             transmitir conocimientos.
                         </p>
                     </li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h2>Escritura de los números Egipcios</h2>
+                </div>
+                <ul class="list-group list-group-flush">
                     <li class="list-group-item">
                         <p>
-                            La historia de porque dibujamos los números de la forma actual, comienza en la India 300 años antes de cristo, donde desarrollaron
-                            un sistema en el que se representaban los principales dígitos que iban del uno al nueve (1-9),
-                            esto ya que aún no existe el cero (0); con estos símbolos podían crear todos sus números superiores
-                            después del nueve. No sería hasta el siglo VII cuando desarrollarían el número cero o la nada
+                            En el antiguo Egipto el uso de los números se remonta cerca de los 3.000 A.C., cuya
+                            prioridad fue principalmente relacionada con temas comerciales, y su forma de
+                            representación fue a partir de jeroglíficos, su orden de escritura no era relevante para
+                            ellos, podían escribirse de derecha a izquierda o de arriba abajo, en esta cultura los
+                            números adquirieron gran relevancia para llevar a cabo diferentes actividades, una de estas
+                            fue cuando el Faraón solicitaba la medición de las tierras para distribuirlas de cierta
+                            forma entre los campesinos, y así fue como descubrieron algunas operaciones matemáticas
+                            como las fracciones.
+                        </p>
+                        <p class="text-center">
+                            <img src="../img/games/numeros/escritura-numeros-egipcios.jpg" class="img-fluid" alt="escritura de numeros egipcios antiguos">
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h2>Escritura de los números Griegos</h2>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <p>
+                            Los griegos alrededor de los 600 A.C. desarrollaron dos tipos de sistemas de números, estos
+                            son conocidos como el sistema Alejandrino o Jónico el cual usaba para su representación
+                            letras minúsculas del alfabeto griego, cada letra tenía un valor numérico; y el sistema
+                            acrofónico o ático que impartía que la escritura de cada número se debía realizar a partir
+                            de la primera letra con la que era llamado cada número; fue también en la cultura griega en
+                            la que se inició el uso del ábaco, el cual era un aparato manual conformado por varias
+                            hileras que tenía insertadas piedras móviles, las cuales se corrían de un lado a otro para
+                            llevar determinados conteos.
+                        </p>
+                        <p class="text-center">
+                            <img src="../img/games/numeros/escritura-numeros-griegos.jpg" class="img-fluid" alt="escritura de numeros griegos antiguos">
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h2>Escritura de los números Maya</h2>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <p>
+                            La cultura Maya alrededor del siglo III de nuestra era desarrolló un sistema de numeración
+                            el cual se leía de abajo arriba, se escribía en columnas y tenía como base dos números,
+                            estos eran el 5 y el 20. La representación de sus números se realizaba a partir de
+                            jeroglíficos, y su necesidad de uso fue fundamentalmente para medir el tiempo, de ahí que
+                            la cultura Maya tiene gran relación con los días, meses y años, y así fue como
+                            desarrollaron su propio calendario.
+
+                            Emplearon tres símbolos el punto para representar el número uno, la raya para representar
+                            el número cinco y un símbolo similar a un caracol para representar el número cero, y con
+                            estos tres símbolos componían todas las cantidades que necesitaban.
+                        </p>
+                        <p class="text-center">
+                            <img src="../img/games/numeros/escritura-numeros-maya.jpg" class="img-fluid" alt="escritura de numeros maya antiguos">
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h2>Escritura de los números Babilónicos</h2>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <p>
+                            El sistema de numeración babilónico se desarrolló alrededor de los 1.800 A.C. y tenía como
+                            número base el número 60, de aquí que en dicha época las diversas medidas se ciñeron a
+                            dicha unidad; en un principio no existía el número cero, sin embargo, tiempo después el uso
+                            del número cero se introdujo en la numeración babilónica.
+                        </p>
+                        <p class="text-center">
+                            <img src="../img/games/numeros/escritura-numeros-babilonicos.jpg" class="img-fluid" alt="escritura de numeros babilonicos antiguos">
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h2>Escritura de los números Chinos</h2>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <p>
+                            Alrededor del 1500 A.C. se inició a desarrollar la numeración china, cuya base era el
+                            sistema decimal con unidades y distintas potencias de 10. Los números del uno al diez
+                            tenían su propio símbolo al igual que las unidades de decena, centena, millar y decena
+                            millar. Su numeración se realizaba de arriba abajo.
+                        </p>
+                        <p class="text-center">
+                            <img src="../img/games/numeros/escritura-numeros-chinos.png" class="img-fluid" alt="escritura de numeros chinos antiguos">
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h2>Escritura de los números Hindúes</h2>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <p>
+                            La historia de porque dibujamos los números de la forma actual, comienza en la India 300
+                            años antes de cristo, donde desarrollaron
+                            un sistema en el que se representaban los principales dígitos que iban del uno al nueve
+                            (1-9),
+                            esto ya que aún no existe el cero (0); con estos símbolos podían crear todos sus números
+                            superiores
+                            después del nueve. No sería hasta el siglo VII cuando desarrollarían el número cero o la
+                            nada
                             como concepto matemático, incluyendo sus operaciones matemáticas con los demás.
                         </p>
                         <p class="text-center">
-                            <img src="../img/games/numeros/numeros-hindues.png" class="img-fluid" alt="numeros hindues antiguos">
+                            <img src="../img/games/numeros/escritura-numeros-hindues.png" class="img-fluid" alt="numeros hindues antiguos">
                         </p>
                     </li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h2>Escritura de los números Arábigos</h2>
+                </div>
+                <ul class="list-group list-group-flush">
                     <li class="list-group-item">
                         <p>
-                            El siguiente aporte a la escritura de los números lo realizó la cultura Árabe que habían absorbido parte de los conocimientos
-                            de la cultura de los Hindúes entre ellos el uso del número 0, esto gracias a su desarrollado
-                            conocimiento en las matemáticas que se intensificó con los conocimientos de la cultura Hindú,
-                            lo que permitió avances como el de sistemas de ecuaciones que lo podemos ver en el Libro Álgebra
+                            El siguiente aporte a la escritura de los números lo realizó la cultura Árabe que habían
+                            absorbido parte de los conocimientos
+                            de la cultura de los Hindúes entre ellos el uso del número 0, esto gracias a su
+                            desarrollado
+                            conocimiento en las matemáticas que se intensificó con los conocimientos de la cultura
+                            Hindú,
+                            lo que permitió avances como el de sistemas de ecuaciones que lo podemos ver en el Libro
+                            Álgebra
                             de Baldor y dando origen al sistema numérico Indoarábigo el sistema usado actualmente.
                         </p>
                         <p class="text-center">
-                            <img src="../img/games/numeros/numeros-arabigos.png" class="img-fluid" alt="numeros arabigos antiguos">
+                            <img src="../img/games/numeros/escritura-numeros-arabigos.png" class="img-fluid" alt="numeros arabigos antiguos">
                         </p>
                     </li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h2>Escritura de los números Romanos</h2>
+                </div>
+                <ul class="list-group list-group-flush">
                     <li class="list-group-item">
                         <p>
-                            Sin Embargo este sistema no se popularizó hasta el siglo XV con la cultura de los Romanos quienes tenían su propio sistema
-                            de escritura de números, los famosos números romanos. El sistema fue popularizado gracias a Leonardo
-                            de Pisa o más conocido como Fibonacci quien por cuestiones de trabajo viajaba mucho a las tierras
-                            de África y a Medio Oriente. Es en estas regiones donde aprende los símbolos usados por esas
-                            culturas y los dio a conocer en Europa por medio de sus libros. En ellos hablaba de cómo escribir
-                            cualquier número únicamente con los 10 símbolos que van del cero al nueve (0-9), simplificando
-                            mucho los cálculos y la cantidad de escritura que se requería para los números ya que los números
+                            Sin Embargo este sistema no se popularizó hasta el siglo XV con la cultura de los Romanos
+                            quienes tenían su propio sistema
+                            de escritura de números, los famosos números romanos. El sistema fue popularizado gracias a
+                            Leonardo
+                            de Pisa o más conocido como Fibonacci quien por cuestiones de trabajo viajaba mucho a las
+                            tierras
+                            de África y a Medio Oriente. Es en estas regiones donde aprende los símbolos usados por
+                            esas
+                            culturas y los dio a conocer en Europa por medio de sus libros. En ellos hablaba de cómo
+                            escribir
+                            cualquier número únicamente con los 10 símbolos que van del cero al nueve (0-9),
+                            simplificando
+                            mucho los cálculos y la cantidad de escritura que se requería para los números ya que los
+                            números
                             romanos eran muy largos y difíciles de operar.
                         </p>
                         <p class="text-center">
-                            <img src="../img/games/numeros/numeros-romanos.png" class="img-fluid" alt="numeros romanos">
+                            <img src="../img/games/numeros/escritura-numeros-romanos.png" class="img-fluid" alt="numeros romanos">
                         </p>
                     </li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h2>Escritura de los números Actuales</h2>
+                </div>
+                <ul class="list-group list-group-flush">
                     <li class="list-group-item">
                         <p>
-                            Si bien los números Indoarábigos eran más fáciles de escribir y operar, fue difícil inicialmente que se impusieran sobre
-                            el sistema romano, solo con el paso del tiempo fue que estos se impusieron y se dieron a conocer
+                            Si bien los números Indoarábigos eran más fáciles de escribir y operar, fue difícil
+                            inicialmente que se impusieran sobre el sistema romano, solo con el paso del tiempo fue que
+                            estos se impusieron y se dieron a conocer en toda Europa.
+
+                            Lo anterior es una historia muy resumida con respecto a la historia de los números, de por
+                            qué los escribimos de esa forma, su impacto cultural, y como son el resultado de un proceso
+                            en el que varias culturas intervinieron. Así que recuerda que escribir los números de forma
+                            clara y sencilla para todos fue uno de los grandes avances que ha tenido la humanidad.
+                        </p>
+                        <p class="text-center">
+                            <img src="../img/games/numeros/escritura-numeros-actuales.jpg" class="img-fluid" alt="numeros actuales romanos">
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            <!--
+                    <li class="list-group-item">
+                        <p>
+                            Si bien los números Indoarábigos eran más fáciles de escribir y operar, fue difícil
+                            inicialmente que se impusieran sobre
+                            el sistema romano, solo con el paso del tiempo fue que estos se impusieron y se dieron a
+                            conocer
                             en toda Europa.
                         </p>
                     </li>
                     <li class="list-group-item">
                         <p>
-                            Lo anterior es una historia muy resumida con respecto a la historia de los números, de por qué los escribimos de esa forma,
-                            su impacto cultural, y como son el resultado de un proceso en el que varias culturas intervinieron.
-                            Así que recuerda que escribir los números de forma clara y sencilla para todos fue uno de los
+                            Lo anterior es una historia muy resumida con respecto a la historia de los números, de por
+                            qué los escribimos de esa forma,
+                            su impacto cultural, y como son el resultado de un proceso en el que varias culturas
+                            intervinieron.
+                            Así que recuerda que escribir los números de forma clara y sencilla para todos fue uno de
+                            los
                             grandes avances que ha tenido la humanidad.
                         </p>
                     </li>
                 </ul>
-            </div>
+            </div>-->
         </div>
 
         <div class="container-fluid">
@@ -258,7 +450,8 @@
             </div>
         </div>
 
-        <div class="modal fade" id="myModalResults" tabindex="-1" role="dialog" aria-labelledby="Resultados" aria-hidden="true">
+        <div class="modal fade" id="myModalResults" tabindex="-1" role="dialog" aria-labelledby="Resultados"
+            aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -291,14 +484,16 @@
                 </p>
                 <p>
                     <iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fwww.gamethemed.com%2F&layout=button&size=large&mobile_iframe=true&width=73&height=28&appId"
-                        width="73" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"
-                        allow="encrypted-media"></iframe>
+                        width="73" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
+                        allowTransparency="true" allow="encrypted-media"></iframe>
                 </p>
             </div>
         </div>
     </footer>
 </body>
 
+<!-- js -->
+<script src="../js/jquery-3.3.1.min.js"></script>
 <script src="../js/popper.min.js"></script>
 <script src="../css/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="../js/angular.min.js"></script>

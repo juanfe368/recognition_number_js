@@ -215,7 +215,8 @@ app.controller('writecontroller', function ($scope, $location, $anchorScroll) {
     }
 
     $scope.playAction = function () {
-        var heightDivOperation = document.getElementById("divRespuest").scrollHeight;
+        $("html, body").animate({ scrollTop: $('#sectionGames').offset().top });
+        /*var heightDivOperation = document.getElementById("divRespuest").scrollHeight;
         var heightPage = document.body.scrollHeight;
         var totalPosition = heightPage - 2920;
     
@@ -223,7 +224,7 @@ app.controller('writecontroller', function ($scope, $location, $anchorScroll) {
             top: totalPosition,
             left: 0,
             behavior: 'smooth'
-        });
+        });*/
     }
 
     $scope.playActionMovil = function () {
